@@ -228,29 +228,12 @@ body{
 }
 .tick-dot{color:rgba(26,18,9,.3)!important}
 
-/* ═══════════════════════════════════════════════════════════
-   FEATURES
-═══════════════════════════════════════════════════════════ */
-.features{
-  background:var(--espresso);
-  padding:80px 6%;
-}
-.features-inner{max-width:1200px;margin:0 auto}
-.features-eyebrow{
-  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--marigold);margin-bottom:14px;
-  display:flex;align-items:center;gap:8px;
-}
-.features-eyebrow::after{content:'';flex:1;max-width:28px;height:2px;background:var(--marigold)}
-.features-h2{
-  font-family:'DM Serif Display',serif;font-style:italic;
-  font-size:clamp(28px,3.5vw,44px);
-  color:#fff;line-height:1.1;margin-bottom:48px;
-}
-.features-h2 em{color:var(--marigold);font-style:normal}
-.features-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-}
+
+
+
+
+
+
 .feat-card{
   border-radius:14px;padding:32px 26px;
   transition:transform .22s;
@@ -270,17 +253,9 @@ body{
 }
 .feat-body{font-size:14px;color:rgba(255,255,255,.75);line-height:1.75}
 
-/* ═══════════════════════════════════════════════════════════
-   COMPARE — Why it works
-═══════════════════════════════════════════════════════════ */
-.compare{
-  background:var(--cream);
-  padding:80px 6%;
-}
-.compare-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;
-}
+
+
+
 .compare-eyebrow{
   font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--marigold);margin-bottom:14px;
@@ -290,33 +265,13 @@ body{
 .compare-h2{
   font-family:'DM Serif Display',serif;font-style:italic;
   font-size:clamp(26px,3.2vw,42px);
-  color:var(--espresso);line-height:1.1;margin-bottom:16px;
+  color:#fff;line-height:1.1;margin-bottom:20px;
 }
 .compare-h2 em{color:var(--marigold);font-style:normal}
 .compare-body{
-  font-size:16px;color:var(--tobacco);line-height:1.78;margin-bottom:24px;
+  font-size:17px;color:rgba(255,255,255,.72);line-height:1.82;
 }
-.compare-cards{display:flex;flex-direction:column;gap:12px}
-.cc-bad{
-  background:#fff5f0;border:1px solid rgba(200,151,58,.3);
-  border-radius:12px;padding:20px 22px;
-}
-.cc-good{
-  background:var(--espresso);border-radius:12px;padding:20px 22px;
-}
-.cc-label{
-  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  font-family:'DM Sans',sans-serif;margin-bottom:12px;
-}
-.cc-bad .cc-label{color:var(--tobacco)}
-.cc-good .cc-label{color:rgba(251,245,230,.4)}
-.cc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
-.cc-list li{font-size:13px;display:flex;gap:8px;line-height:1.55}
-.cc-list li::before{flex-shrink:0;font-weight:700;font-size:11px;margin-top:1px}
-.cc-bad .cc-list li{color:rgba(26,18,9,.6)}
-.cc-bad .cc-list li::before{content:'✕';color:var(--tobacco);opacity:.6}
-.cc-good .cc-list li{color:rgba(251,245,230,.78)}
-.cc-good .cc-list li::before{content:'→';color:var(--marigold)}
+
 
 /* ═══════════════════════════════════════════════════════════
    QUOTE
@@ -483,7 +438,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.18)}
     gap:40px!important;
   }
   .hero-card{max-width:100%;width:100%}
-  .features-grid{grid-template-columns:1fr}
+  
   .promise-inner{grid-template-columns:1fr;text-align:center}
   .promise-badge{margin:0 auto}
   .nav-links{display:none}
@@ -504,6 +459,34 @@ footer p{font-size:11px;color:rgba(255,255,255,.18)}
   .hero{padding:40px 5% 60px}
   .features,.compare,.quote-section,.cta-closer{padding:60px 5%}
 }
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   FEATURES
+═══════════════════════════════════════════════════════════ */
+.features{background:#1A1209;padding:80px 6%}
+.features-inner{max-width:1200px;margin:0 auto}
+.features-intro{margin-bottom:48px}
+.features-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--marigold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.features-h2{font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:clamp(28px,3.5vw,44px);color:#fff;line-height:1.1;margin-bottom:20px}
+.features-h2 em{color:var(--marigold);font-style:normal}
+.features-intro-body{
+  font-size:16px;color:rgba(255,255,255,.68);line-height:1.82;max-width:680px;margin-bottom:48px}
+.features-intro-body em{color:rgba(255,255,255,.9);font-style:italic}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPARE
+═══════════════════════════════════════════════════════════ */
+.compare{background:var(--aubergine);padding:80px 6%}
+.compare-inner{max-width:720px;margin:0 auto}
+@media(max-width:900px){
+  .features-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -569,7 +552,8 @@ footer p{font-size:11px;color:rgba(255,255,255,.18)}
 <section class="features" id="method">
   <div class="features-inner">
     <div class="features-eyebrow">The Method</div>
-    <h2 class="features-h2">Not a course. <em>A method.</em></h2>
+    <h2 class="features-h2">Why everything you've tried <em>didn't work.</em></h2>
+    <p class="features-intro-body">Most courses teach you <em>about</em> Spanish. Jazmín puts you <em>inside</em> it — from your very first lesson. The brain acquires language the same way in every person. Align with that process and Spanish becomes inevitable, not effortful.</p>
     <div class="features-grid">
       <div class="feat-card">
         <div class="feat-num">01</div>
@@ -593,49 +577,21 @@ footer p{font-size:11px;color:rgba(255,255,255,.18)}
 <!-- ══════════════════════════════════════════════════════════
   COMPARE — Why it works
 ══════════════════════════════════════════════════════════ -->
-<section class="compare">
+<section class="compare" id="why">
   <div class="compare-inner">
-    <div>
-      <div class="compare-eyebrow">Why it works</div>
-      <h2 class="compare-h2">Why everything you've tried <em>didn't work.</em></h2>
-      <p class="compare-body">Most courses teach you <em>about</em> Spanish. Jazmín puts you <em>inside</em> it — from your very first lesson. The brain acquires language the same way in every person. Align with that process and Spanish becomes inevitable, not effortful.</p>
-      <p class="compare-body">Two years of study. Every verb conjugated. Still couldn't order a coffee. That was Frank before the Jazmín Method. Six weeks later he held a twenty-minute unrehearsed conversation with a native speaker.</p>
-    </div>
-    <div class="compare-cards">
-      <div class="cc-bad">
-        <div class="cc-label">Traditional Courses</div>
-        <ul class="cc-list">
-          <li>Memorise vocabulary lists</li>
-          <li>Study grammar rules first</li>
-          <li>Translate in your head</li>
-          <li>Speak only when "ready"</li>
-          <li>Measure progress in lessons</li>
-        </ul>
-      </div>
-      <div class="cc-good">
-        <div class="cc-label">The Jazmín Method</div>
-        <ul class="cc-list">
-          <li>Train your ear from Day 1</li>
-          <li>Acquire grammar through sound</li>
-          <li>Think directly in Spanish</li>
-          <li>Speak from the very beginning</li>
-          <li>Measure progress in conversations</li>
-        </ul>
-      </div>
-    </div>
+    <div class="compare-eyebrow">The Method</div>
+    <h2 class="compare-h2">Why everything you've tried <em>didn't work.</em></h2>
+    <p class="compare-body">Most courses teach you <em>about</em> Spanish. Jazmín puts you <em>inside</em> it — from your very first lesson. The brain acquires language the same way in every person. Align with that process and Spanish becomes inevitable, not effortful.</p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-  QUOTE
-══════════════════════════════════════════════════════════ -->
 <section class="quote-section">
   <div class="quote-inner">
-    <div class="quote-eyebrow">Founding Student · Frank</div>
+    <div class="quote-eyebrow">Student &nbsp;·&nbsp; Maria T. &nbsp;·&nbsp; Miami, FL</div>
     <blockquote class="quote-text">
-      "I could conjugate verbs but couldn't order coffee. Six weeks with Jazmín and I was having <em>real conversations</em> for the first time."
+      "I took classes for two years, did the apps, bought the workbooks. I could read okay but the moment a native speaker opened their mouth I was lost. Jazmín's approach flipped everything — we started with listening and speaking from day one, no grammar charts, no memorising. Within a few weeks I wasn't just understanding more, I was actually responding. It felt less like studying and more like my ear finally <em>woke up.</em>"
     </blockquote>
-    <cite class="quote-cite">— Frank &nbsp;·&nbsp; Co-creator &amp; Founding Student</cite>
+    <cite class="quote-cite">— Maria T. &nbsp;·&nbsp; Miami, FL</cite>
   </div>
 </section>
 
