@@ -4,119 +4,415 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>90-Day Course — The Jazmín Method</title>
-<meta name="description" content="Your 90-day Spanish learning journey with the Jazmín Method."/>
+<meta name="description" content="Your 90-day Spanish learning journey with the Jazmín Method. Daily lessons, audio, video, and resources."/>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#FBF5E6;color:#1A1209;overflow-x:hidden}
-:root{--espresso:#1A1209;--aubergine:#4A2C52;--marigold:#C8973A;--cream:#FBF5E6;--tobacco:#6B5B3E;--deep:#0E0A05}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes tickScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.nav{background:var(--aubergine);padding:18px 6%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:900;letter-spacing:-.03em;color:var(--marigold);text-decoration:none}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#FBF5E6;
+  color:#1A1209;
+  overflow-x:hidden;
+}
+:root{
+  --espresso:  #1A1209;
+  --aubergine: #4A2C52;
+  --marigold:  #C8973A;
+  --cream:     #FBF5E6;
+  --tobacco:   #6B5B3E;
+  --deep:      #0E0A05;
+}
+
+/* ── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes popIn{
+  0%{opacity:0;transform:scale(.9)}
+  60%{transform:scale(1.04)}
+  100%{opacity:1;transform:scale(1)}
+}
+@keyframes tickScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ── NAV ────────────────────────────────────────────────── */
+.nav{
+  background:var(--aubergine);
+  padding:18px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo{
+  font-family:'Unbounded',sans-serif;font-size:20px;font-weight:900;
+  letter-spacing:-.03em;color:var(--marigold);text-decoration:none;
+}
 .nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.nav-links a{
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;
+}
 .nav-links a:hover{color:#fff}
-.nav-tagline{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.04em}
-.ticker{background:var(--marigold);padding:13px 0;overflow:hidden;white-space:nowrap}
-.ticker-inner{display:inline-flex;animation:tickScroll 30s linear infinite}
-.ticker-inner span{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:0 20px;color:var(--espresso)}
+.nav-tagline{
+  font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.04em;
+}
+
+/* ── TICKER ─────────────────────────────────────────────── */
+.ticker{
+  background:var(--marigold);
+  padding:13px 0;overflow:hidden;white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-flex;
+  animation:tickScroll 30s linear infinite;
+}
+.ticker-inner span{
+  font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:0 20px;color:var(--espresso);
+}
 .tick-dot{color:rgba(26,18,9,.3)!important}
-.hero{background:var(--aubergine);padding:64px 6% 56px;position:relative;overflow:hidden;text-align:center}
-.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,151,58,.08) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 60%,rgba(200,151,58,.1) 0%,transparent 70%);pointer-events:none}
+
+/* ── HERO ───────────────────────────────────────────────── */
+.hero{
+  background:var(--aubergine);
+  padding:64px 6% 56px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(200,151,58,.08) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 50% 60%,rgba(200,151,58,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
 .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
-.hero-h1{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(32px,5vw,56px);line-height:1.1;color:#fff;margin-bottom:16px;animation:fadeUp .6s .2s both}
+.hero-h1{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:clamp(32px,5vw,56px);
+  line-height:1.1;letter-spacing:-.01em;
+  color:#fff;margin-bottom:16px;
+  animation:fadeUp .6s .2s both;
+}
 .hero-h1 em{color:var(--marigold);font-style:normal}
-.hero-body{font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;max-width:580px;margin:0 auto;animation:fadeUp .6s .4s both}
+.hero-body{
+  font-size:17px;color:rgba(255,255,255,.68);line-height:1.78;
+  max-width:580px;margin:0 auto 0;
+  animation:fadeUp .6s .4s both;
+}
 .hero-body strong{color:#fff}
-.controls{background:var(--cream);padding:28px 6% 0;position:sticky;top:56px;z-index:90;border-bottom:1px solid rgba(26,18,9,.06)}
-.controls-inner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding-bottom:20px}
-.search-box{flex:1;min-width:200px;position:relative}
-.search-box input{width:100%;padding:12px 16px 12px 42px;border:1px solid rgba(26,18,9,.12);border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:var(--espresso);outline:none;transition:border-color .2s}
+
+/* ── SEARCH & FILTER BAR ────────────────────────────────── */
+.controls{
+  background:var(--cream);
+  padding:28px 6% 0;
+  position:sticky;top:56px;z-index:90;
+  border-bottom:1px solid rgba(26,18,9,.06);
+}
+.controls-inner{
+  max-width:960px;margin:0 auto;
+  display:flex;flex-wrap:wrap;align-items:center;gap:16px;
+  padding-bottom:20px;
+}
+.search-box{
+  flex:1;min-width:200px;position:relative;
+}
+.search-box input{
+  width:100%;padding:12px 16px 12px 42px;
+  border:1px solid rgba(26,18,9,.12);border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  background:#fff;color:var(--espresso);
+  outline:none;transition:border-color .2s;
+}
 .search-box input:focus{border-color:var(--marigold)}
 .search-box input::placeholder{color:rgba(26,18,9,.35)}
-.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:rgba(26,18,9,.3);pointer-events:none}
-.phase-tabs{display:flex;gap:6px;flex-wrap:wrap}
-.phase-tab{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 18px;border-radius:100px;border:1px solid rgba(26,18,9,.12);background:transparent;color:var(--tobacco);cursor:pointer;transition:all .2s}
+.search-box svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;color:rgba(26,18,9,.3);pointer-events:none;
+}
+.phase-tabs{
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.phase-tab{
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 18px;border-radius:100px;
+  border:1px solid rgba(26,18,9,.12);background:transparent;
+  color:var(--tobacco);cursor:pointer;transition:all .2s;
+}
 .phase-tab:hover{border-color:var(--marigold);color:var(--espresso)}
-.phase-tab.active{background:var(--aubergine);color:var(--marigold);border-color:var(--aubergine)}
-.day-jump{display:flex;align-items:center;gap:8px}
-.day-jump label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tobacco)}
-.day-jump input{width:64px;padding:8px 12px;border:1px solid rgba(26,18,9,.12);border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;text-align:center;color:var(--espresso);background:#fff;outline:none}
+.phase-tab.active{
+  background:var(--aubergine);color:var(--marigold);
+  border-color:var(--aubergine);
+}
+
+/* Day jump */
+.day-jump{
+  display:flex;align-items:center;gap:8px;
+}
+.day-jump label{
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tobacco);
+}
+.day-jump input{
+  width:64px;padding:8px 12px;
+  border:1px solid rgba(26,18,9,.12);border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
+  text-align:center;color:var(--espresso);background:#fff;
+  outline:none;
+}
 .day-jump input:focus{border-color:var(--marigold)}
-.day-jump button{padding:8px 16px;border-radius:100px;border:none;background:var(--marigold);color:var(--espresso);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:background .2s}
+.day-jump button{
+  padding:8px 16px;border-radius:100px;border:none;
+  background:var(--marigold);color:var(--espresso);
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.04em;cursor:pointer;transition:background .2s;
+}
 .day-jump button:hover{background:#b5872e}
-.course{padding:40px 6% 80px}
+
+/* ── COURSE CONTENT ─────────────────────────────────────── */
+.course{
+  padding:40px 6% 80px;
+}
 .course-inner{max-width:960px;margin:0 auto}
-.phase-header{margin-bottom:36px;padding-top:24px}
-.phase-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--marigold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+
+/* Phase header */
+.phase-header{
+  margin-bottom:36px;
+  padding-top:24px;
+}
+.phase-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--marigold);margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
 .phase-eyebrow::after{content:'';flex:1;max-width:48px;height:2px;background:var(--marigold)}
-.phase-title{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(24px,3.5vw,36px);color:var(--espresso);line-height:1.15;margin-bottom:6px}
+.phase-title{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:clamp(24px,3.5vw,36px);
+  color:var(--espresso);line-height:1.15;margin-bottom:6px;
+}
 .phase-title em{color:var(--marigold);font-style:normal}
-.phase-desc{font-size:15px;color:var(--tobacco);line-height:1.65;max-width:600px}
-.day-section{margin-bottom:32px;scroll-margin-top:140px}
-.day-header{display:flex;align-items:center;gap:16px;margin-bottom:16px;cursor:pointer;padding:8px 0}
-.day-num{width:52px;height:52px;border-radius:50%;background:var(--aubergine);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:15px;font-weight:900;color:var(--marigold);flex-shrink:0;transition:transform .2s}
+.phase-desc{
+  font-size:15px;color:var(--tobacco);line-height:1.65;max-width:600px;
+}
+
+/* Day section */
+.day-section{
+  margin-bottom:32px;
+  scroll-margin-top:140px;
+}
+.day-header{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:16px;cursor:pointer;
+  padding:8px 0;
+}
+.day-num{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--aubergine);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Unbounded',sans-serif;font-size:15px;font-weight:900;
+  color:var(--marigold);flex-shrink:0;
+  transition:transform .2s;
+}
 .day-header:hover .day-num{transform:scale(1.08)}
 .day-info{flex:1}
-.day-title{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;color:var(--espresso);line-height:1.25;margin-bottom:2px}
-.day-subtitle{font-size:13px;color:var(--tobacco);line-height:1.5}
-.day-toggle{width:32px;height:32px;border-radius:50%;background:rgba(26,18,9,.04);border:1px solid rgba(26,18,9,.08);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.day-title{
+  font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;
+  color:var(--espresso);line-height:1.25;margin-bottom:2px;
+}
+.day-subtitle{
+  font-size:13px;color:var(--tobacco);line-height:1.5;
+}
+.day-toggle{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(26,18,9,.04);border:1px solid rgba(26,18,9,.08);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;
+}
 .day-header:hover .day-toggle{background:rgba(200,151,58,.1);border-color:rgba(200,151,58,.3)}
-.day-toggle svg{width:14px;height:14px;color:var(--tobacco);transition:transform .3s}
+.day-toggle svg{
+  width:14px;height:14px;color:var(--tobacco);
+  transition:transform .3s;
+}
 .day-section.open .day-toggle svg{transform:rotate(180deg)}
-.day-resources{display:none;padding:0 0 0 68px}
+
+/* Resource grid (matches thank-you page) */
+.day-resources{
+  display:none;
+  padding:0 0 0 68px;
+}
 .day-section.open .day-resources{display:block}
-.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.resource-card{border-radius:14px;padding:24px 20px;border:1px solid;transition:transform .22s;position:relative;overflow:hidden}
+.resource-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.resource-card{
+  border-radius:14px;padding:24px 20px;
+  border:1px solid;
+  transition:transform .22s;
+  position:relative;overflow:hidden;
+}
 .resource-card:hover{transform:translateY(-4px)}
-.resource-card.style-1{background:rgba(26,18,9,.92);border-color:rgba(255,255,255,.1)}
+
+/* Card color cycling — 6 variations */
+.resource-card.style-1{background:rgba(26,18,9,.92);border-color:rgba(255,255,255,.1);color-scheme:dark}
 .resource-card.style-2{background:rgba(200,151,58,.12);border-color:rgba(200,151,58,.3)}
-.resource-card.style-3{background:rgba(74,44,82,.88);border-color:rgba(74,44,82,.45)}
+.resource-card.style-3{background:rgba(74,44,82,.88);border-color:rgba(74,44,82,.45);color-scheme:dark}
 .resource-card.style-4{background:rgba(200,151,58,.08);border-color:rgba(200,151,58,.2)}
 .resource-card.style-5{background:rgba(26,18,9,.04);border-color:rgba(26,18,9,.1)}
 .resource-card.style-6{background:rgba(74,44,82,.1);border-color:rgba(74,44,82,.25)}
-.resource-card.style-1 .rc-title,.resource-card.style-3 .rc-title{color:#fff}
-.resource-card.style-1 .rc-body,.resource-card.style-3 .rc-body{color:rgba(255,255,255,.55)}
-.resource-card.style-2 .rc-title,.resource-card.style-4 .rc-title,.resource-card.style-5 .rc-title,.resource-card.style-6 .rc-title{color:var(--espresso)}
-.resource-card.style-2 .rc-body,.resource-card.style-4 .rc-body,.resource-card.style-5 .rc-body,.resource-card.style-6 .rc-body{color:var(--tobacco)}
-.rc-icon{font-size:28px;margin-bottom:12px;display:block;line-height:1}
-.rc-type{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--marigold);margin-bottom:6px}
-.rc-title{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;line-height:1.25;margin-bottom:6px}
-.rc-body{font-size:13px;line-height:1.65;margin-bottom:12px}
-.rc-cta{font-size:11px;font-weight:700;color:var(--marigold);text-decoration:none;letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px}
+
+/* Dark cards get white text */
+.resource-card.style-1 .rc-title,
+.resource-card.style-3 .rc-title{color:#fff}
+.resource-card.style-1 .rc-body,
+.resource-card.style-3 .rc-body{color:rgba(255,255,255,.55)}
+
+/* Light cards get dark text */
+.resource-card.style-2 .rc-title,
+.resource-card.style-4 .rc-title,
+.resource-card.style-5 .rc-title,
+.resource-card.style-6 .rc-title{color:var(--espresso)}
+.resource-card.style-2 .rc-body,
+.resource-card.style-4 .rc-body,
+.resource-card.style-5 .rc-body,
+.resource-card.style-6 .rc-body{color:var(--tobacco)}
+
+.rc-icon{
+  font-size:28px;margin-bottom:12px;display:block;line-height:1;
+}
+.rc-type{
+  font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--marigold);margin-bottom:6px;
+}
+.rc-title{
+  font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;
+  line-height:1.25;margin-bottom:6px;
+}
+.rc-body{
+  font-size:13px;line-height:1.65;
+  margin-bottom:12px;
+}
+.rc-cta{
+  font-size:11px;font-weight:700;color:var(--marigold);
+  text-decoration:none;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:4px;
+}
 .rc-cta::after{content:'→'}
-.no-results{text-align:center;padding:80px 20px;display:none}
+.rc-tag{
+  display:inline-block;margin-top:0;
+  font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--aubergine);background:rgba(74,44,82,.08);
+  border:1px solid rgba(74,44,82,.2);
+  border-radius:100px;padding:3px 10px;
+}
+.resource-card.style-1 .rc-tag,
+.resource-card.style-3 .rc-tag{
+  color:var(--marigold);background:rgba(200,151,58,.12);
+  border-color:rgba(200,151,58,.3);
+}
+
+/* No results */
+.no-results{
+  text-align:center;padding:80px 20px;
+  display:none;
+}
 .no-results-icon{font-size:48px;margin-bottom:16px}
-.no-results h3{font-family:'DM Serif Display',serif;font-style:italic;font-size:24px;color:var(--espresso);margin-bottom:8px}
+.no-results h3{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:24px;color:var(--espresso);margin-bottom:8px;
+}
 .no-results p{font-size:15px;color:var(--tobacco)}
-footer{background:var(--deep);padding:28px 6%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05)}
-.footer-logo{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;letter-spacing:-.03em;color:var(--marigold);text-decoration:none}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer{
+  background:var(--deep);
+  padding:28px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.footer-logo{
+  font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;
+  letter-spacing:-.03em;color:var(--marigold);text-decoration:none;
+}
 footer p{font-size:11px;color:rgba(255,255,255,.2)}
-.progress-bar{background:rgba(26,18,9,.06);border-radius:100px;height:6px;margin-top:12px;overflow:hidden}
-.progress-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--marigold),var(--aubergine));transition:width .4s ease}
-@media(max-width:900px){.resource-grid{grid-template-columns:1fr 1fr}.day-resources{padding-left:0}}
-@media(max-width:600px){.resource-grid{grid-template-columns:1fr}.controls-inner{flex-direction:column;align-items:stretch}.phase-tabs{justify-content:center}.day-jump{justify-content:center}.nav-tagline,.nav-links{display:none}footer{flex-direction:column;gap:16px;text-align:center}.day-header{gap:12px}.day-num{width:44px;height:44px;font-size:13px}}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:900px){
+  .resource-grid{grid-template-columns:1fr 1fr}
+  .day-resources{padding-left:0}
+}
+@media(max-width:600px){
+  .resource-grid{grid-template-columns:1fr}
+  .controls-inner{flex-direction:column;align-items:stretch}
+  .phase-tabs{justify-content:center}
+  .day-jump{justify-content:center}
+  .nav-tagline,.nav-links{display:none}
+  footer{flex-direction:column;gap:16px;text-align:center}
+  .day-header{gap:12px}
+  .day-num{width:44px;height:44px;font-size:13px}
+}
+
+/* ── PROGRESS BAR ───────────────────────────────────────── */
+.progress-bar{
+  background:rgba(26,18,9,.06);
+  border-radius:100px;height:6px;
+  margin-top:12px;overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:100px;
+  background:linear-gradient(90deg,var(--marigold),var(--aubergine));
+  transition:width .4s ease;
+}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav class="nav">
   <a href="/" class="nav-logo">Jazmín</a>
-  <div class="nav-links"><a href="/">Home</a><a href="#course">Course</a></div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="#course">Course</a>
+  </div>
   <span class="nav-tagline">90-Day Spanish Course</span>
 </nav>
-<div class="ticker"><div class="ticker-inner">
-  <span>Día a día</span><span class="tick-dot">·</span><span>90 Days to Spanish</span><span class="tick-dot">·</span><span>El método que sí funciona</span><span class="tick-dot">·</span><span>Audio · Video · Practice</span><span class="tick-dot">·</span><span>Your Daily Spanish Toolkit</span><span class="tick-dot">·</span>
-  <span>Día a día</span><span class="tick-dot">·</span><span>90 Days to Spanish</span><span class="tick-dot">·</span><span>El método que sí funciona</span><span class="tick-dot">·</span><span>Audio · Video · Practice</span><span class="tick-dot">·</span><span>Your Daily Spanish Toolkit</span><span class="tick-dot">·</span>
-</div></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Día a día</span><span class="tick-dot">·</span>
+    <span>90 Days to Spanish</span><span class="tick-dot">·</span>
+    <span>El método que sí funciona</span><span class="tick-dot">·</span>
+    <span>Audio · Video · Practice</span><span class="tick-dot">·</span>
+    <span>Your Daily Spanish Toolkit</span><span class="tick-dot">·</span>
+    <span>Día a día</span><span class="tick-dot">·</span>
+    <span>90 Days to Spanish</span><span class="tick-dot">·</span>
+    <span>El método que sí funciona</span><span class="tick-dot">·</span>
+    <span>Audio · Video · Practice</span><span class="tick-dot">·</span>
+    <span>Your Daily Spanish Toolkit</span><span class="tick-dot">·</span>
+  </div>
+</div>
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <h1 class="hero-h1">Your <em>90-Day</em> Spanish Journey</h1>
-    <p class="hero-body">Every day brings a new lesson, fresh resources, and one step closer to fluency. <strong>Navigate by day, search by topic, or browse at your own pace.</strong></p>
+    <p class="hero-body">
+      Every day brings a new lesson, fresh resources, and one step closer to fluency.
+      <strong>Navigate by day, search by topic, or browse at your own pace.</strong>
+    </p>
   </div>
 </section>
+
+<!-- SEARCH & FILTER -->
 <div class="controls" id="course">
   <div class="controls-inner">
     <div class="search-box">
@@ -136,91 +432,478 @@ footer p{font-size:11px;color:rgba(255,255,255,.2)}
     </div>
   </div>
 </div>
+
+<!-- COURSE CONTENT -->
 <main class="course">
-  <div class="course-inner" id="courseContent"></div>
-  <div class="no-results" id="noResults"><div class="no-results-icon">🔍</div><h3>No lessons found</h3><p>Try a different search term or clear your filters.</p></div>
+  <div class="course-inner" id="courseContent">
+    <!-- Populated by JavaScript -->
+  </div>
+  <div class="no-results" id="noResults">
+    <div class="no-results-icon">🔍</div>
+    <h3>No lessons found</h3>
+    <p>Try a different search term or clear your filters.</p>
+  </div>
 </main>
-<footer><a href="/" class="footer-logo">Jazmín</a><p>&copy; 2025 The Jazmín Method</p></footer>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Jazmín</a>
+  <p>&copy; 2025 The Jazmín Method</p>
+</footer>
+
 <script>
-const D=[
-  {d:1,t:"The 5 Spanish Vowels",s:"Master the sounds that unlock everything",p:1,r:[{i:"🎧",y:"Audio Lesson",n:"The 5 Spanish Vowels",b:"Learn why Spanish vowels are consistent, clear, and the key to sounding natural from Day 1.",c:"Listen now"},{i:"📺",y:"Video · 8 min",n:"Jazmín Explains the Method",b:"See how the 90-day journey works and why it's different from anything you've tried before.",c:"Watch the video"},{i:"✍️",y:"Free Download",n:"50 Most Useful Spanish Phrases",b:"Your go-to cheat sheet for the expressions you'll actually use in real conversations.",c:"Download the guide"}]},
-  {d:2,t:"Greetings & First Words",s:"Hola, buenos días, and beyond",p:1,r:[{i:"🎧",y:"Audio Lesson",n:"Everyday Greetings",b:"Natural pronunciation of the greetings you'll use most.",c:"Listen now"},{i:"📖",y:"Quick Read",n:"Why Greetings Matter More Than Grammar",b:"The social shortcuts that make you sound fluent before you technically are.",c:"Read the article"},{i:"💬",y:"Practice",n:"Greeting Role-Play",b:"Practice exchanging greetings in 5 common scenarios with audio prompts.",c:"Start practice"}]},
-  {d:3,t:"Numbers 1–20",s:"Count, order, and navigate daily life",p:1,r:[{i:"🎧",y:"Audio Lesson",n:"Numbers 1–20 Drill",b:"Repeat, count, and internalize. These numbers show up everywhere.",c:"Listen now"},{i:"✍️",y:"Worksheet",n:"Number Practice Sheet",b:"Fill-in-the-blank and matching exercises to lock in your numbers.",c:"Download worksheet"},{i:"🎙️",y:"Podcast",n:"Numbers in Real Life",b:"Hear how native speakers use numbers in markets, restaurants, and on the phone.",c:"Listen to episode"}]},
-  {d:4,t:"Pronunciation Secrets",s:"The sounds English speakers always get wrong",p:1,r:[{i:"📺",y:"Video",n:"R, RR, and the Ñ",b:"The three sounds that trip up every English speaker — and how to nail them.",c:"Watch the video"},{i:"🎧",y:"Audio Drill",n:"Tongue Twisters",b:"Fun trabalenguas that train your mouth for Spanish sounds.",c:"Listen now"},{i:"📖",y:"Quick Read",n:"Your Accent Is an Asset",b:"Why your accent isn't a problem — it's a bridge. A mindset shift.",c:"Read the article"}]},
-  {d:5,t:"Introducing Yourself",s:"Name, origin, and what you do",p:1,r:[{i:"🎧",y:"Audio Lesson",n:"Me llamo… Soy de…",b:"The essential self-introduction framework with natural phrasing.",c:"Listen now"},{i:"💬",y:"Practice",n:"Introduce Yourself 5 Ways",b:"Record yourself and compare with native speaker examples.",c:"Start practice"},{i:"✍️",y:"Worksheet",n:"Personal Info Card",b:"Fill out your own info card in Spanish — your first written exercise.",c:"Download worksheet"}]},
-  {d:6,t:"Articles & Gender",s:"El, la, los, las — the pattern behind it all",p:1,r:[{i:"📺",y:"Video",n:"Gender Rules That Actually Work",b:"Forget memorizing — learn the patterns that cover 90% of cases.",c:"Watch the video"},{i:"🎧",y:"Audio Lesson",n:"El vs. La Drills",b:"Rapid-fire article practice to build instinct, not just knowledge.",c:"Listen now"},{i:"📖",y:"Quick Read",n:"Why Gender Matters Less Than You Think",b:"Communication beats perfection. Here's why mistakes are fine.",c:"Read the article"}]},
-  {d:7,t:"Week 1 Review",s:"Consolidate everything from your first week",p:1,r:[{i:"📺",y:"Video",n:"Week 1 Recap with Jazmín",b:"Review all the key concepts from Days 1–6 in one session.",c:"Watch the video"},{i:"✍️",y:"Quiz",n:"Week 1 Self-Assessment",b:"Test yourself on vowels, greetings, numbers, and introductions.",c:"Take the quiz"},{i:"🎧",y:"Audio Review",n:"Week 1 Listening Comprehension",b:"Can you understand these short dialogues? Let's find out.",c:"Listen now"},{i:"🎙️",y:"Podcast",n:"Slow Spanish: Week 1 Story",b:"A simple story using only words you've learned this week.",c:"Listen to episode"}]},
+// ── COURSE DATA ──────────────────────────────────────────
+// Each day has a title, subtitle, and array of resource assets
+const courseData = [
+  // ─── PHASE 1: FOUNDATION (Days 1–30) ───
+  {day:1,title:"The 5 Spanish Vowels",subtitle:"Master the sounds that unlock everything",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"The 5 Spanish Vowels",body:"Learn why Spanish vowels are consistent, clear, and the key to sounding natural from Day 1.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 8 min",title:"Jazmín Explains the Method",body:"See how the 90-day journey works and why it's different from anything you've tried before.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Free Download",title:"50 Most Useful Spanish Phrases",body:"Your go-to cheat sheet for the expressions you'll actually use in real conversations.",cta:"Download the guide",link:"#"},
+  ]},
+  {day:2,title:"Greetings & First Words",subtitle:"Hola, buenos días, and beyond",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Everyday Greetings",body:"Natural pronunciation of the greetings you'll use most. Repeat after Jazmín.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"Why Greetings Matter More Than Grammar",body:"The social shortcuts that make you sound fluent before you technically are.",cta:"Read the article",link:"#"},
+    {icon:"💬",type:"Practice",title:"Greeting Role-Play",body:"Practice exchanging greetings in 5 common scenarios with audio prompts.",cta:"Start practice",link:"#"},
+  ]},
+  {day:3,title:"Numbers 1–20",subtitle:"Count, order, and navigate daily life",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Numbers 1–20 Drill",body:"Repeat, count, and internalize. These numbers show up everywhere.",cta:"Listen now",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Number Practice Sheet",body:"Fill-in-the-blank and matching exercises to lock in your numbers.",cta:"Download worksheet",link:"#"},
+    {icon:"🎙️",type:"Podcast · 5 min",title:"Numbers in Real Life",body:"Hear how native speakers use numbers in markets, restaurants, and on the phone.",cta:"Listen to episode",link:"#"},
+  ]},
+  {day:4,title:"Pronunciation Secrets",subtitle:"The sounds English speakers always get wrong",phase:1,resources:[
+    {icon:"📺",type:"Video · 10 min",title:"R, RR, and the Ñ",body:"The three sounds that trip up every English speaker — and how to nail them.",cta:"Watch the video",link:"#"},
+    {icon:"🎧",type:"Audio Drill",title:"Tongue Twisters",body:"Fun trabalenguas that train your mouth for Spanish sounds.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 4 min",title:"Your Accent Is an Asset",body:"Why your accent isn't a problem — it's a bridge. A mindset shift.",cta:"Read the article",link:"#"},
+  ]},
+  {day:5,title:"Introducing Yourself",subtitle:"Name, origin, and what you do",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Me llamo… Soy de…",body:"The essential self-introduction framework with natural phrasing.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"Introduce Yourself 5 Ways",body:"Record yourself and compare with native speaker examples.",cta:"Start practice",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Personal Info Card",body:"Fill out your own info card in Spanish — your first written exercise.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:6,title:"Articles & Gender",subtitle:"El, la, los, las — the pattern behind it all",phase:1,resources:[
+    {icon:"📺",type:"Video · 7 min",title:"Gender Rules That Actually Work",body:"Forget memorizing — learn the patterns that cover 90% of cases.",cta:"Watch the video",link:"#"},
+    {icon:"🎧",type:"Audio Lesson",title:"El vs. La Drills",body:"Rapid-fire article practice to build instinct, not just knowledge.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"Why Gender Matters Less Than You Think",body:"Communication beats perfection. Here's why mistakes are fine.",cta:"Read the article",link:"#"},
+  ]},
+  {day:7,title:"Week 1 Review",subtitle:"Consolidate everything from your first week",phase:1,resources:[
+    {icon:"📺",type:"Video · 12 min",title:"Week 1 Recap with Jazmín",body:"Review all the key concepts from Days 1–6 in one session.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Quiz",title:"Week 1 Self-Assessment",body:"Test yourself on vowels, greetings, numbers, and introductions.",cta:"Take the quiz",link:"#"},
+    {icon:"🎧",type:"Audio Review",title:"Week 1 Listening Comprehension",body:"Can you understand these short dialogues? Let's find out.",cta:"Listen now",link:"#"},
+    {icon:"🎙️",type:"Podcast",title:"Slow Spanish: Week 1 Story",body:"A simple story using only words you've learned this week.",cta:"Listen to episode",link:"#"},
+  ]},
+  {day:8,title:"Ser vs. Estar (Part 1)",subtitle:"The two 'to be' verbs — start with ser",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Understanding Ser",body:"Identity, origin, profession — when you use ser and why.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 5 min",title:"Ser: The Permanent You",body:"A clear breakdown with examples you'll actually remember.",cta:"Read the article",link:"#"},
+    {icon:"💬",type:"Practice",title:"Ser Sentence Builder",body:"Construct 10 sentences about yourself using ser.",cta:"Start practice",link:"#"},
+  ]},
+  {day:9,title:"Ser vs. Estar (Part 2)",subtitle:"Estar for location, mood, and temporary states",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Understanding Estar",body:"Location, feelings, conditions — estar covers the 'right now'.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 8 min",title:"Ser vs. Estar Side by Side",body:"See both verbs compared with real-world examples.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Ser or Estar? Practice",body:"50 fill-in sentences to build your instinct for the right choice.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:10,title:"Colors & Descriptions",subtitle:"Describe the world around you",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Colors in Spanish",body:"Learn the colors and how adjectives work with nouns.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"Describe Your Room",body:"Look around and describe 10 things you see — in Spanish.",cta:"Start practice",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"Adjective Placement Rules",body:"Before or after the noun? The simple rule that covers most cases.",cta:"Read the article",link:"#"},
+  ]},
+  {day:11,title:"Family & Relationships",subtitle:"Mi familia — essential vocabulary",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Family Vocabulary",body:"Mother, father, siblings, cousins — the family tree in Spanish.",cta:"Listen now",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"My Family Tree",body:"Draw and label your own family tree in Spanish.",cta:"Download worksheet",link:"#"},
+    {icon:"📺",type:"Video · 6 min",title:"Talking About Your Family",body:"Watch Jazmín describe her family and practice along.",cta:"Watch the video",link:"#"},
+  ]},
+  {day:12,title:"Common Verbs (Part 1)",subtitle:"Hablar, comer, vivir — the big three patterns",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"-AR, -ER, -IR Verbs",body:"The three verb families and how to conjugate them in present tense.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 5 min",title:"Conjugation Without the Pain",body:"A pattern-based approach that makes verb forms click.",cta:"Read the article",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Verb Conjugation Practice",body:"Conjugate the 10 most essential verbs in all present tense forms.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:13,title:"Common Verbs (Part 2)",subtitle:"Querer, poder, tener — irregular but essential",phase:1,resources:[
+    {icon:"📺",type:"Video · 9 min",title:"Irregular Verbs Made Simple",body:"These verbs break the rules — but they follow their own patterns.",cta:"Watch the video",link:"#"},
+    {icon:"🎧",type:"Audio Drill",title:"Irregular Verb Drills",body:"Rapid conjugation practice for the 8 most common irregular verbs.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"Verb Sentence Challenge",body:"Make 15 sentences using today's verbs in real contexts.",cta:"Start practice",link:"#"},
+  ]},
+  {day:14,title:"Week 2 Review",subtitle:"Two weeks down — you know more than you think",phase:1,resources:[
+    {icon:"📺",type:"Video · 14 min",title:"Week 2 Recap",body:"Review ser vs. estar, descriptions, family, and verb patterns.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Quiz",title:"Week 2 Self-Assessment",body:"Test your knowledge of everything from Days 8–13.",cta:"Take the quiz",link:"#"},
+    {icon:"🎙️",type:"Podcast",title:"Slow Spanish: Week 2 Story",body:"A short story using your Week 1 and Week 2 vocabulary.",cta:"Listen to episode",link:"#"},
+  ]},
+  {day:15,title:"Food & Ordering",subtitle:"Navigate a menu and order with confidence",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Restaurant Vocabulary",body:"Menu items, ordering phrases, and polite requests.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 8 min",title:"Ordering Food Like a Local",body:"Watch a real restaurant interaction and learn the flow.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Free Download",title:"Restaurant Survival Sheet",body:"The phrases you need from 'mesa para dos' to 'la cuenta'.",cta:"Download the guide",link:"#"},
+  ]},
+  {day:16,title:"Time & Daily Routine",subtitle:"¿Qué hora es? Telling time and talking about your day",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Telling Time in Spanish",body:"Hours, minutes, and the common shortcuts locals use.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"Describe Your Day",body:"Walk through your daily routine from morning to night in Spanish.",cta:"Start practice",link:"#"},
+    {icon:"📖",type:"Quick Read · 4 min",title:"Reflexive Verbs & Routines",body:"Levantarse, ducharse, acostarse — the verbs of daily life.",cta:"Read the article",link:"#"},
+  ]},
+  {day:17,title:"Asking Questions",subtitle:"Turn any statement into a question",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Question Words",body:"Quién, qué, dónde, cuándo, por qué, cómo — your question toolkit.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 7 min",title:"Conversation Through Questions",body:"How to keep any conversation going by asking the right questions.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Question Formation Practice",body:"Transform 20 statements into questions.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:18,title:"Directions & Places",subtitle:"Navigate a city in Spanish",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Giving and Getting Directions",body:"Left, right, straight, the corner — essential navigation words.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"City Vocabulary",body:"Bank, pharmacy, park, station — places you need to find.",cta:"Read the article",link:"#"},
+    {icon:"💬",type:"Practice",title:"Map Navigation Exercise",body:"Follow audio directions on a simple map.",cta:"Start practice",link:"#"},
+  ]},
+  {day:19,title:"Shopping & Money",subtitle:"Prices, bargaining, and transactions",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Shopping Vocabulary",body:"How much does it cost, do you have, I would like — essential shopping phrases.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 6 min",title:"Market Shopping in Mexico",body:"Watch a real market interaction and learn to negotiate politely.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Free Download",title:"Numbers 20–1000",body:"The number patterns that let you understand any price.",cta:"Download the guide",link:"#"},
+  ]},
+  {day:20,title:"Weather & Seasons",subtitle:"¿Qué tiempo hace? Talk about the weather",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Weather Expressions",body:"Hace calor, llueve, está nublado — weather talk in Spanish.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"5-Day Weather Report",body:"Describe the weather forecast for your city in Spanish.",cta:"Start practice",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"Weather as Small Talk",body:"Why weather is your secret weapon for starting conversations.",cta:"Read the article",link:"#"},
+  ]},
+  {day:21,title:"Week 3 Review",subtitle:"Three weeks of progress — celebrate it",phase:1,resources:[
+    {icon:"📺",type:"Video · 15 min",title:"Week 3 Recap",body:"Review food, time, questions, directions, shopping, and weather.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Quiz",title:"Week 3 Self-Assessment",body:"Comprehensive quiz covering Days 15–20.",cta:"Take the quiz",link:"#"},
+    {icon:"🎙️",type:"Podcast",title:"Slow Spanish: Week 3 Story",body:"A story about a day out in a Mexican city — using all your vocabulary.",cta:"Listen to episode",link:"#"},
+    {icon:"🎧",type:"Audio Review",title:"Cumulative Listening Test",body:"Can you follow a 3-minute conversation? Test yourself.",cta:"Listen now",link:"#"},
+  ]},
+  {day:22,title:"Feelings & Emotions",subtitle:"Express how you feel with estar + adjectives",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Emotion Vocabulary",body:"Happy, tired, nervous, excited — emotions with estar.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 4 min",title:"Expressing Yourself Authentically",body:"Move beyond 'bien' — nuanced ways to say how you really feel.",cta:"Read the article",link:"#"},
+    {icon:"💬",type:"Practice",title:"Emotion Journal",body:"Write 5 sentences about how you feel today in Spanish.",cta:"Start practice",link:"#"},
+  ]},
+  {day:23,title:"Likes & Preferences",subtitle:"Me gusta — the verb that works backwards",phase:1,resources:[
+    {icon:"📺",type:"Video · 8 min",title:"How Gustar Really Works",body:"It's not 'I like' — it's 'it pleases me.' This changes everything.",cta:"Watch the video",link:"#"},
+    {icon:"🎧",type:"Audio Lesson",title:"Gustar and Similar Verbs",body:"Gustar, encantar, molestar, interesar — the backwards verbs.",cta:"Listen now",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Likes & Dislikes Survey",body:"Fill out a personal preference survey entirely in Spanish.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:24,title:"Possessives & Demonstratives",subtitle:"My, your, this, that — pointing and owning",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Mi, tu, su, nuestro",body:"Possessives in context — talking about what belongs to whom.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"This, That, and the Other",body:"Este, ese, aquel — the three levels of 'pointing' in Spanish.",cta:"Read the article",link:"#"},
+    {icon:"💬",type:"Practice",title:"My Room, Your Room",body:"Describe and compare spaces using possessives.",cta:"Start practice",link:"#"},
+  ]},
+  {day:25,title:"Past Tense Intro",subtitle:"Your first look at talking about the past",phase:1,resources:[
+    {icon:"📺",type:"Video · 10 min",title:"Pretérito: The Simple Past",body:"The basic past tense — what happened and when it ended.",cta:"Watch the video",link:"#"},
+    {icon:"🎧",type:"Audio Lesson",title:"Regular Past Tense Forms",body:"-AR, -ER, -IR verbs in the past. The patterns are consistent.",cta:"Listen now",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"Yesterday I Did…",body:"Write 10 sentences about what you did yesterday.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:26,title:"Past Tense Practice",subtitle:"Irregular past tense — the essential ones",phase:1,resources:[
+    {icon:"🎧",type:"Audio Drill",title:"Irregular Pretérito Drills",body:"Fui, hice, tuve, dije — the irregular past tense forms you must know.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 5 min",title:"The 10 Past Tense Verbs That Matter Most",body:"Focus on these and you can tell any story.",cta:"Read the article",link:"#"},
+    {icon:"💬",type:"Practice",title:"Tell a Simple Story",body:"Narrate a short story about your weekend using past tense.",cta:"Start practice",link:"#"},
+  ]},
+  {day:27,title:"At the Doctor",subtitle:"Health vocabulary and describing symptoms",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Body Parts & Symptoms",body:"Me duele la cabeza — how to describe what hurts and where.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 7 min",title:"At the Doctor's Office",body:"A simulated doctor visit with key phrases and vocabulary.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Free Download",title:"Medical Spanish Cheat Sheet",body:"Emergency vocabulary for health situations while traveling.",cta:"Download the guide",link:"#"},
+  ]},
+  {day:28,title:"Week 4 Review",subtitle:"Almost one month — look how far you've come",phase:1,resources:[
+    {icon:"📺",type:"Video · 15 min",title:"Week 4 Recap",body:"Review emotions, gustar, possessives, and past tense.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Quiz",title:"Week 4 Self-Assessment",body:"Test your knowledge of Days 22–27.",cta:"Take the quiz",link:"#"},
+    {icon:"🎙️",type:"Podcast",title:"Slow Spanish: Week 4 Story",body:"A story about a trip to the doctor — in past tense!",cta:"Listen to episode",link:"#"},
+  ]},
+  {day:29,title:"Putting It All Together",subtitle:"Combine everything in real conversation",phase:1,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Full Conversation Practice",body:"Listen to a 5-minute conversation using all Phase 1 concepts.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"Introduce & Describe Challenge",body:"Introduce yourself, describe your day, and tell a short story.",cta:"Start practice",link:"#"},
+    {icon:"📖",type:"Quick Read · 5 min",title:"What You've Accomplished",body:"A recap of every skill you've built in 29 days.",cta:"Read the article",link:"#"},
+  ]},
+  {day:30,title:"Phase 1 Complete!",subtitle:"Foundation built — time to celebrate and level up",phase:1,resources:[
+    {icon:"📺",type:"Video · 12 min",title:"Phase 1 Celebration & Review",body:"Jazmín walks through everything you've learned and previews Phase 2.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Assessment",title:"Phase 1 Final Assessment",body:"Comprehensive test of all Phase 1 material.",cta:"Take the assessment",link:"#"},
+    {icon:"🎧",type:"Audio Challenge",title:"Phase 1 Listening Final",body:"Can you follow a full conversation? Your graduation test.",cta:"Listen now",link:"#"},
+    {icon:"🎙️",type:"Podcast",title:"Student Success Stories",body:"Hear from students who completed Phase 1 and what changed for them.",cta:"Listen to episode",link:"#"},
+  ]},
+
+  // ─── PHASE 2: EXPANSION (Days 31–60) ───
+  {day:31,title:"Welcome to Phase 2",subtitle:"From foundation to fluency — the expansion begins",phase:2,resources:[
+    {icon:"📺",type:"Video · 10 min",title:"What Phase 2 Looks Like",body:"Jazmín explains the shift from vocabulary to conversation building.",cta:"Watch the video",link:"#"},
+    {icon:"🎧",type:"Audio Lesson",title:"Imperfect Tense Introduction",body:"A new past tense — for describing how things used to be.",cta:"Listen now",link:"#"},
+    {icon:"📖",type:"Quick Read · 4 min",title:"The Expansion Mindset",body:"How to approach this phase for maximum growth.",cta:"Read the article",link:"#"},
+  ]},
+  {day:32,title:"Imperfect Tense",subtitle:"Describing ongoing past actions and habits",phase:2,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Imperfect vs. Pretérito",body:"When to use each past tense — with clear examples.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 9 min",title:"Imperfect Tense Deep Dive",body:"Regular and irregular forms with memory tricks.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Worksheet",title:"When I Was Young…",body:"Write about your childhood habits using the imperfect.",cta:"Download worksheet",link:"#"},
+  ]},
+  {day:33,title:"Storytelling with Two Pasts",subtitle:"Combine pretérito and imperfect like a native",phase:2,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Two Pasts in Action",body:"How natives seamlessly switch between past tenses in stories.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"Tell Your Childhood Story",body:"Write a short narrative combining both past tenses.",cta:"Start practice",link:"#"},
+    {icon:"📖",type:"Quick Read · 5 min",title:"The Background and the Action",body:"A visual way to understand when each tense applies.",cta:"Read the article",link:"#"},
+  ]},
+  {day:34,title:"Travel Vocabulary",subtitle:"Airport, hotel, and transportation essentials",phase:2,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"Travel Spanish Essentials",body:"Check in, board, arrive, depart — the travel verb toolkit.",cta:"Listen now",link:"#"},
+    {icon:"📺",type:"Video · 8 min",title:"Navigating a Latin Airport",body:"Watch and learn the flow from arrival to taxi.",cta:"Watch the video",link:"#"},
+    {icon:"✍️",type:"Free Download",title:"Travel Phrase Pack",body:"All the phrases you need for flights, hotels, and transit.",cta:"Download the guide",link:"#"},
+  ]},
+  {day:35,title:"Future Tense",subtitle:"Talk about what's coming — ir a + infinitive",phase:2,resources:[
+    {icon:"🎧",type:"Audio Lesson",title:"The Easy Future",body:"Ir a + verb — the conversational future tense used most often.",cta:"Listen now",link:"#"},
+    {icon:"💬",type:"Practice",title:"My Plans for Tomorrow",body:"Describe your plans for tomorrow using the future construction.",cta:"Start practice",link:"#"},
+    {icon:"📖",type:"Quick Read · 3 min",title:"Why This Future Tense Comes First",body:"The formal future exists, but this is what people actually say.",cta:"Read the article",link:"#"},
+  ]},
 ];
 
-const P1=[["Ser vs. Estar (Part 1)","The two to be verbs — start with ser"],["Ser vs. Estar (Part 2)","Estar for location, mood, and temporary states"],["Colors & Descriptions","Describe the world around you"],["Family & Relationships","Mi familia — essential vocabulary"],["Common Verbs (Part 1)","Hablar, comer, vivir — the big three patterns"],["Common Verbs (Part 2)","Querer, poder, tener — irregular but essential"],["Week 2 Review","Two weeks down — you know more than you think"],["Food & Ordering","Navigate a menu and order with confidence"],["Time & Daily Routine","Telling time and talking about your day"],["Asking Questions","Turn any statement into a question"],["Directions & Places","Navigate a city in Spanish"],["Shopping & Money","Prices, bargaining, and transactions"],["Weather & Seasons","Talk about the weather"],["Week 3 Review","Three weeks of progress — celebrate it"],["Feelings & Emotions","Express how you feel with estar + adjectives"],["Likes & Preferences","Me gusta — the verb that works backwards"],["Possessives & Demonstratives","My, your, this, that — pointing and owning"],["Past Tense Intro","Your first look at talking about the past"],["Past Tense Practice","Irregular past tense — the essential ones"],["At the Doctor","Health vocabulary and describing symptoms"],["Week 4 Review","Almost one month — look how far you've come"],["Putting It All Together","Combine everything in real conversation"],["Phase 1 Complete!","Foundation built — time to celebrate and level up"]];
-const P2=[["Welcome to Phase 2","From foundation to fluency — the expansion begins"],["Imperfect Tense","Describing ongoing past actions and habits"],["Storytelling with Two Pasts","Combine pretérito and imperfect like a native"],["Travel Vocabulary","Airport, hotel, and transportation essentials"],["Future Tense","Talk about what's coming — ir a + infinitive"],["Direct & Indirect Objects","Pronouns that replace nouns"],["Reflexive Verbs Deep Dive","Actions you do to yourself — daily routines expanded"],["Week 6 Review","Consolidate your Phase 2 progress so far"],["Conditional Mood","I would, you would — polite requests and hypotheticals"],["Comparisons","More than, less than, as much as — comparing things"],["Superlatives","The best, the worst, the most — extremes in Spanish"],["Prepositions of Place","Spatial relationships in Spanish"],["Week 7 Review","Review and practice Days 39–43"],["Giving Advice","Deberías, te recomiendo — helping others in Spanish"],["Making Plans","How Spanish speakers make plans"],["Phone & Text Spanish","Real-world messaging and phone etiquette"],["Subjunctive Introduction","The mood that expresses wishes, doubts, and emotions"],["Week 8 Review","Consolidate the subjunctive and practical skills"],["Subjunctive Practice","Quiero que, espero que — using subjunctive daily"],["Relative Clauses","Que, quien, donde — connecting ideas like a native"],["Formal vs. Informal","Tú vs. usted and when each matters"],["Cultural Context: Mexico","Regional expressions, slang, and customs"],["Week 9 Review","Review Days 50–54 and cultural knowledge"],["Negotiating & Persuading","Convincing, bargaining, expressing strong opinions"],["Complaints & Problems","Something's wrong — expressing issues politely"],["Connecting Ideas","Porque, aunque, sin embargo — advanced connectors"],["Phase 2 Review","Comprehensive review of Days 31–57"],["Phase 2 Review (cont.)","Continue consolidating Phase 2 skills"],["Phase 2 Complete!","Expansion achieved — ready for mastery"],["Phase 2 Final Assessment","Comprehensive Phase 2 assessment"]];
-const P3=[["Welcome to Phase 3","The mastery phase — thinking in Spanish"],["Advanced Past Tenses","Pluperfect and conditional perfect"],["Subjunctive Mastery","Imperfect subjunctive for hypotheticals"],["Debate & Discussion","Express complex opinions and disagree respectfully"],["Spanish Humor & Idioms","Jokes, wordplay, and native expressions"],["Week 10 Review","Review the start of Phase 3"],["Business Spanish","Professional vocabulary for meetings and email"],["Formal Writing","Letters, applications, and professional correspondence"],["Present Perfect","He hablado, has comido — the recent past tense"],["Passive Voice","How to talk about what was done or created"],["Week 11 Review","Consolidate business and advanced grammar"],["Regional Dialects","How Spanish changes across Latin America and Spain"],["Slang & Colloquialisms","Everyday expressions from Mexico to Argentina"],["Advanced Listening","Native-speed conversations and media"],["News & Current Events","Read and discuss Spanish-language news"],["Week 12 Review","Review Days 72–75"],["Literature & Poetry","Read short poems and excerpts in Spanish"],["Music & Lyrics","Learn Spanish through popular Latin music"],["Film & Television","Watch and discuss Spanish-language media"],["Advanced Storytelling","Tell complex narratives with nuance and emotion"],["Week 13 Review","Almost there — review Days 77–80"],["Public Speaking","Give a short presentation in Spanish"],["Advanced Conversation","Extended dialogues on abstract topics"],["Spanish for Travel: Advanced","Handle any situation while abroad"],["Thinking in Spanish","Stop translating — think directly in Spanish"],["Writing Fluently","Journal entries, creative writing, and essays"],["Week 14 Review","Review the final stretch"],["Your Spanish Identity","Finding your voice and personality in Spanish"],["Fluency Assessment","Comprehensive skills evaluation"],["¡Lo Lograste! You Did It!","Celebrate 90 days of transformation"]];
+// Generate remaining days 36-60 (Phase 2) and 61-90 (Phase 3)
+const phase2Topics = [
+  ["Direct & Indirect Objects","Pronouns that replace nouns — lo, la, le, les"],
+  ["Reflexive Verbs Deep Dive","Actions you do to yourself — daily routines expanded"],
+  ["Week 6 Review","Consolidate your Phase 2 progress so far"],
+  ["Conditional Mood","I would, you would — polite requests and hypotheticals"],
+  ["Comparisons","More than, less than, as much as — comparing things"],
+  ["Superlatives","The best, the worst, the most — extremes in Spanish"],
+  ["Prepositions of Place","Above, below, between, next to — spatial relationships"],
+  ["Week 7 Review","Review and practice Days 39–43"],
+  ["Giving Advice","Deberías, te recomiendo — helping others in Spanish"],
+  ["Making Plans","¿Quedamos? How Spanish speakers make plans"],
+  ["Phone & Text Spanish","Real-world messaging abbreviations and phone etiquette"],
+  ["Subjunctive Introduction","The mood that expresses wishes, doubts, and emotions"],
+  ["Week 8 Review","Consolidate the subjunctive and practical conversation skills"],
+  ["Subjunctive Practice","Quiero que, espero que — using subjunctive in daily life"],
+  ["Relative Clauses","Que, quien, donde — connecting ideas like a native"],
+  ["Formal vs. Informal","Tú vs. usted and when each matters"],
+  ["Cultural Context: Mexico","Regional expressions, slang, and customs"],
+  ["Week 9 Review","Review Days 50–54 and cultural knowledge"],
+  ["Negotiating & Persuading","Convincing, bargaining, and expressing strong opinions"],
+  ["Complaints & Problems","Something's wrong — expressing issues politely"],
+  ["Connecting Ideas","Porque, aunque, sin embargo — advanced connectors"],
+  ["Phase 2 Review","Comprehensive review of Days 31–58"],
+  ["Phase 2 Complete!","Expansion achieved — ready for mastery"],
+];
+const phase3Topics = [
+  ["Welcome to Phase 3","The mastery phase — thinking in Spanish"],
+  ["Advanced Past Tenses","Pluperfect and conditional perfect"],
+  ["Subjunctive Mastery","Imperfect subjunctive for hypotheticals"],
+  ["Debate & Discussion","Express complex opinions and disagree respectfully"],
+  ["Spanish Humor & Idioms","Jokes, wordplay, and expressions that make you sound native"],
+  ["Week 10 Review","Review the start of Phase 3"],
+  ["Business Spanish","Professional vocabulary for meetings and email"],
+  ["Formal Writing","Letters, applications, and professional correspondence"],
+  ["Present Perfect","He hablado, has comido — the recent past tense"],
+  ["Passive Voice","How to talk about what was done, built, or created"],
+  ["Week 11 Review","Consolidate business and advanced grammar"],
+  ["Regional Dialects","How Spanish changes across Latin America and Spain"],
+  ["Slang & Colloquialisms","Everyday expressions from Mexico to Argentina"],
+  ["Advanced Listening","Native-speed conversations and media"],
+  ["News & Current Events","Read and discuss Spanish-language news"],
+  ["Week 12 Review","Review Days 72–75"],
+  ["Literature & Poetry","Read short poems and excerpts in Spanish"],
+  ["Music & Lyrics","Learn Spanish through popular Latin music"],
+  ["Film & Television","Watch and discuss scenes from Spanish-language media"],
+  ["Advanced Storytelling","Tell complex narratives with nuance and emotion"],
+  ["Week 13 Review","Almost there — review Days 77–80"],
+  ["Public Speaking","Give a short presentation in Spanish"],
+  ["Advanced Conversation","Extended dialogues on abstract topics"],
+  ["Spanish for Travel: Advanced","Handle any situation while abroad"],
+  ["Thinking in Spanish","Techniques to stop translating in your head"],
+  ["Writing Fluently","Journal entries, creative writing, and essays"],
+  ["Week 14 Review","Review the final stretch"],
+  ["Your Spanish Identity","Finding your voice and personality in Spanish"],
+  ["Fluency Assessment","Comprehensive skills evaluation"],
+  ["¡Lo Lograste! You Did It!","Celebrate 90 days of transformation"],
+];
 
-const RT=[{i:"🎧",y:"Audio Lesson"},{i:"📺",y:"Video"},{i:"📖",y:"Quick Read"},{i:"✍️",y:"Worksheet"},{i:"💬",y:"Practice"},{i:"🎙️",y:"Podcast"}];
-function cta(i){return i==="🎧"?"Listen now":i==="📺"?"Watch the video":i==="📖"?"Read the article":i==="✍️"?"Download worksheet":i==="💬"?"Start practice":"Listen to episode"}
+const resourceTypes = [
+  {icon:"🎧",type:"Audio Lesson"},{icon:"📺",type:"Video"},{icon:"📖",type:"Quick Read"},
+  {icon:"✍️",type:"Worksheet"},{icon:"💬",type:"Practice"},{icon:"🎙️",type:"Podcast"},
+];
 
-function gen(topics,start,phase){
-  topics.forEach(([t,s],i)=>{
-    const day=start+i,rev=t.includes("Review")||t.includes("Complete")||t.includes("Lograste")||t.includes("Assessment");
-    const sh=[...RT].sort(()=>Math.random()-.5);
-    const r=[];for(let j=0;j<(rev?4:3);j++){const rt=sh[j%sh.length];r.push({i:rt.i,y:rt.y,n:t,b:s+". Explore this resource to deepen your understanding.",c:cta(rt.i)});}
-    D.push({d:day,t,s,p:phase,r});
-  });
+// Generate remaining Phase 2 days
+for(let i=0;i<phase2Topics.length;i++){
+  const dayNum = 36+i;
+  const [title,subtitle] = phase2Topics[i];
+  const isReview = title.includes("Review") || title.includes("Complete");
+  const resources = [];
+  const shuffled = [...resourceTypes].sort(()=>Math.random()-.5);
+  const count = isReview ? 4 : 3;
+  for(let r=0;r<count;r++){
+    const rt = shuffled[r%shuffled.length];
+    resources.push({
+      icon:rt.icon, type:rt.type, title:`Day ${dayNum}: ${title}`,
+      body:`${subtitle}. Explore this ${rt.type.toLowerCase()} resource to deepen your understanding.`,
+      cta:rt.icon==="🎧"?"Listen now":rt.icon==="📺"?"Watch the video":rt.icon==="📖"?"Read the article":rt.icon==="✍️"?"Download worksheet":rt.icon==="💬"?"Start practice":"Listen to episode",
+      link:"#"
+    });
+  }
+  courseData.push({day:dayNum,title,subtitle,phase:2,resources});
 }
-gen(P1,8,1);gen(P2,31,2);gen(P3,61,3);
-D.sort((a,b)=>a.d-b.d);
 
-const PHASES=[
-  {n:1,ey:"Phase 1 · Days 1–30",ti:"Foundation",em:"Building Your Base",de:"Master pronunciation, essential vocabulary, core grammar, and build the confidence to have your first real conversations."},
-  {n:2,ey:"Phase 2 · Days 31–60",ti:"Expansion",em:"Growing Your Skills",de:"Add complexity with past and future tenses, subjunctive mood, and the practical vocabulary for travel, work, and social life."},
-  {n:3,ey:"Phase 3 · Days 61–90",ti:"Mastery",em:"Thinking in Spanish",de:"Advanced grammar, cultural fluency, native-speed comprehension, and the confidence to handle any conversation."},
+// Generate Phase 3 days
+for(let i=0;i<phase3Topics.length;i++){
+  const dayNum = 61+i;
+  const [title,subtitle] = phase3Topics[i];
+  const isReview = title.includes("Review") || title.includes("Complete") || title.includes("Lograste");
+  const resources = [];
+  const shuffled = [...resourceTypes].sort(()=>Math.random()-.5);
+  const count = isReview ? 4 : 3;
+  for(let r=0;r<count;r++){
+    const rt = shuffled[r%shuffled.length];
+    resources.push({
+      icon:rt.icon, type:rt.type, title:`Day ${dayNum}: ${title}`,
+      body:`${subtitle}. Explore this ${rt.type.toLowerCase()} resource to deepen your understanding.`,
+      cta:rt.icon==="🎧"?"Listen now":rt.icon==="📺"?"Watch the video":rt.icon==="📖"?"Read the article":rt.icon==="✍️"?"Download worksheet":rt.icon==="💬"?"Start practice":"Listen to episode",
+      link:"#"
+    });
+  }
+  courseData.push({day:dayNum,title,subtitle,phase:3,resources});
+}
+
+// Sort by day
+courseData.sort((a,b)=>a.day-b.day);
+
+// ── RENDER ───────────────────────────────────────────────
+const phases = [
+  {num:1,eyebrow:"Phase 1 · Days 1–30",title:"Foundation",titleEm:"Building Your Base",desc:"Master pronunciation, essential vocabulary, core grammar, and build the confidence to have your first real conversations."},
+  {num:2,eyebrow:"Phase 2 · Days 31–60",title:"Expansion",titleEm:"Growing Your Skills",desc:"Add complexity with past and future tenses, subjunctive mood, and the practical vocabulary for travel, work, and social life."},
+  {num:3,eyebrow:"Phase 3 · Days 61–90",title:"Mastery",titleEm:"Thinking in Spanish",desc:"Advanced grammar, cultural fluency, native-speed comprehension, and the confidence to handle any conversation."},
 ];
-const CS=['style-1','style-2','style-3','style-4','style-5','style-6'];
 
-function render(data,phase){
-  const c=document.getElementById('courseContent'),nr=document.getElementById('noResults');
-  c.innerHTML='';
-  if(!data.length){nr.style.display='block';return;}
-  nr.style.display='none';
-  (phase==='all'?[1,2,3]:[parseInt(phase)]).forEach(pn=>{
-    const pd=data.filter(d=>d.p===pn);if(!pd.length)return;
-    const ph=PHASES[pn-1],pe=document.createElement('div');
-    pe.className='phase-header';pe.id=`phase-${pn}`;
-    pe.innerHTML=`<div class="phase-eyebrow">${ph.ey}</div><h2 class="phase-title">${ph.ti}: <em>${ph.em}</em></h2><p class="phase-desc">${ph.de}</p><div class="progress-bar"><div class="progress-fill" style="width:${(pd.length/30*100).toFixed(0)}%"></div></div>`;
-    c.appendChild(pe);
-    pd.forEach(day=>{
-      const el=document.createElement('div');el.className='day-section';el.id=`day-${day.d}`;
-      const cards=day.r.map((r,i)=>`<a href="#" class="resource-card ${CS[i%CS.length]}" style="text-decoration:none"><span class="rc-icon">${r.i}</span><div class="rc-type">${r.y}</div><div class="rc-title">${r.n}</div><div class="rc-body">${r.b}</div><span class="rc-cta">${r.c}</span></a>`).join('');
-      el.innerHTML=`<div class="day-header" onclick="tog(${day.d})"><div class="day-num">${day.d}</div><div class="day-info"><div class="day-title">${day.t}</div><div class="day-subtitle">${day.s}</div></div><div class="day-toggle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></div></div><div class="day-resources"><div class="resource-grid">${cards}</div></div>`;
-      c.appendChild(el);
+const cardStyles = ['style-1','style-2','style-3','style-4','style-5','style-6'];
+
+function renderCourse(filteredData, activePhase){
+  const container = document.getElementById('courseContent');
+  const noResults = document.getElementById('noResults');
+  container.innerHTML = '';
+
+  if(filteredData.length === 0){
+    noResults.style.display = 'block';
+    return;
+  }
+  noResults.style.display = 'none';
+
+  const phasesToShow = activePhase === 'all'
+    ? [1,2,3]
+    : [parseInt(activePhase)];
+
+  phasesToShow.forEach(phaseNum => {
+    const phaseDays = filteredData.filter(d => d.phase === phaseNum);
+    if(phaseDays.length === 0) return;
+
+    const phase = phases[phaseNum - 1];
+    const phaseEl = document.createElement('div');
+    phaseEl.className = 'phase-header';
+    phaseEl.id = `phase-${phaseNum}`;
+    phaseEl.innerHTML = `
+      <div class="phase-eyebrow">${phase.eyebrow}</div>
+      <h2 class="phase-title">${phase.title}: <em>${phase.titleEm}</em></h2>
+      <p class="phase-desc">${phase.desc}</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:${(phaseDays.length/30*100).toFixed(0)}%"></div></div>
+    `;
+    container.appendChild(phaseEl);
+
+    phaseDays.forEach(day => {
+      const dayEl = document.createElement('div');
+      dayEl.className = 'day-section';
+      dayEl.id = `day-${day.day}`;
+
+      const resourceCards = day.resources.map((r, i) => {
+        const style = cardStyles[i % cardStyles.length];
+        return `
+          <a href="${r.link}" class="resource-card ${style}" style="text-decoration:none">
+            <span class="rc-icon">${r.icon}</span>
+            <div class="rc-type">${r.type}</div>
+            <div class="rc-title">${r.title}</div>
+            <div class="rc-body">${r.body}</div>
+            <span class="rc-cta">${r.cta}</span>
+          </a>
+        `;
+      }).join('');
+
+      dayEl.innerHTML = `
+        <div class="day-header" onclick="toggleDay(${day.day})">
+          <div class="day-num">${day.day}</div>
+          <div class="day-info">
+            <div class="day-title">${day.title}</div>
+            <div class="day-subtitle">${day.subtitle}</div>
+          </div>
+          <div class="day-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="day-resources">
+          <div class="resource-grid">${resourceCards}</div>
+        </div>
+      `;
+      container.appendChild(dayEl);
     });
   });
 }
 
-function tog(d){document.getElementById(`day-${d}`).classList.toggle('open')}
+function toggleDay(dayNum){
+  const el = document.getElementById(`day-${dayNum}`);
+  el.classList.toggle('open');
+}
 
 function jumpToDay(){
-  const v=parseInt(document.getElementById('dayJump').value);
-  if(v>=1&&v<=90){
-    const day=D.find(d=>d.d===v);
-    if(day)setPhase(day.p.toString());
-    setTimeout(()=>{const el=document.getElementById(`day-${v}`);if(el){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'start'});}},100);
+  const input = document.getElementById('dayJump');
+  const day = parseInt(input.value);
+  if(day >= 1 && day <= 90){
+    const el = document.getElementById(`day-${day}`);
+    if(el){
+      // Make sure the right phase tab is active
+      const dayData = courseData.find(d => d.day === day);
+      if(dayData){
+        setPhase(dayData.phase.toString());
+      }
+      // Open and scroll
+      setTimeout(() => {
+        const target = document.getElementById(`day-${day}`);
+        if(target){
+          target.classList.add('open');
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      }, 100);
+    }
   }
-  document.getElementById('dayJump').value='';
+  input.value = '';
 }
 
-let curPhase='all',curSearch='';
+// ── FILTERING ────────────────────────────────────────────
+let currentPhase = 'all';
+let currentSearch = '';
+
 function applyFilters(){
-  let f=[...D];
-  if(curPhase!=='all')f=f.filter(d=>d.p===parseInt(curPhase));
-  if(curSearch.trim()){const q=curSearch.toLowerCase();f=f.filter(d=>[d.t,d.s,`day ${d.d}`,...d.r.map(r=>`${r.y} ${r.n} ${r.b}`)].join(' ').toLowerCase().includes(q));}
-  render(f,curPhase);
+  let filtered = [...courseData];
+  if(currentPhase !== 'all'){
+    filtered = filtered.filter(d => d.phase === parseInt(currentPhase));
+  }
+  if(currentSearch.trim()){
+    const q = currentSearch.toLowerCase();
+    filtered = filtered.filter(d => {
+      const dayStr = `day ${d.day}`;
+      const texts = [d.title, d.subtitle, dayStr,
+        ...d.resources.map(r => `${r.type} ${r.title} ${r.body}`)
+      ].join(' ').toLowerCase();
+      return texts.includes(q);
+    });
+  }
+  renderCourse(filtered, currentPhase);
 }
-function setPhase(p){curPhase=p;document.querySelectorAll('.phase-tab').forEach(t=>t.classList.toggle('active',t.dataset.phase===p));applyFilters();}
-document.querySelectorAll('.phase-tab').forEach(t=>t.addEventListener('click',()=>setPhase(t.dataset.phase)));
-let st;document.getElementById('searchInput').addEventListener('input',e=>{clearTimeout(st);st=setTimeout(()=>{curSearch=e.target.value;applyFilters();},250);});
-document.getElementById('dayJump').addEventListener('keydown',e=>{if(e.key==='Enter')jumpToDay();});
-render(D,'all');
+
+function setPhase(phase){
+  currentPhase = phase;
+  document.querySelectorAll('.phase-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.phase === phase);
+  });
+  applyFilters();
+}
+
+// Phase tabs
+document.querySelectorAll('.phase-tab').forEach(tab => {
+  tab.addEventListener('click', () => setPhase(tab.dataset.phase));
+});
+
+// Search
+let searchTimeout;
+document.getElementById('searchInput').addEventListener('input', e => {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    currentSearch = e.target.value;
+    applyFilters();
+  }, 250);
+});
+
+// Day jump on Enter
+document.getElementById('dayJump').addEventListener('keydown', e => {
+  if(e.key === 'Enter') jumpToDay();
+});
+
+// Initial render
+renderCourse(courseData, 'all');
 </script>
 </body>
 </html>
