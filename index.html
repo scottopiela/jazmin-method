@@ -532,8 +532,9 @@ footer p{font-size:11px;color:rgba(255,255,255,.18)}
       </h1>
       <p class="hero-tagline">Hear Spanish. Speak Spanish. Live Spanish.</p>
       <p class="hero-sub">Jazmín's sound-first method puts you inside the language from Day 1 — no grammar drills, no vocab lists, no frustration.</p>
-      <form class="hero-form kf" novalidate>
-        <input class="hero-fi" type="email" name="email_address" placeholder="Your email address" required/>
+      <form class="hero-form" action="https://app.kit.com/forms/9229821/subscriptions" method="post" data-sv-form="9229821" data-uid="e59f04d7a6" data-format="inline" data-version="5" novalidate>
+        <input type="hidden" name="redirect_to" value="https://www.jazminmethod.com/thank-you"/>
+        <input class="hero-fi" type="email" name="email_address" placeholder="Your email address" required autocomplete="email"/>
         <button class="hero-fb" type="submit">Start Free →</button>
       </form>
       <p class="hero-fn">🇲🇽 No credit card &nbsp;·&nbsp; Real conversation by Day 30 &nbsp;·&nbsp; Cancel anytime</p>
@@ -631,8 +632,9 @@ footer p{font-size:11px;color:rgba(255,255,255,.18)}
       <div class="cta-eyebrow">Start today · It's free</div>
       <h2 class="cta-h2">Ready to actually<br><em>speak Spanish?</em></h2>
       <p class="cta-body">Get your free Day 1 lesson the moment you sign up. No credit card. No commitment. Real conversation by Day 30 — guaranteed.</p>
-      <form class="cta-form kf" novalidate>
-        <input class="cta-fi" type="email" name="email_address" placeholder="Your email address" required/>
+      <form class="cta-form" action="https://app.kit.com/forms/9229821/subscriptions" method="post" data-sv-form="9229821" data-uid="e59f04d7a6" data-format="inline" data-version="5" novalidate>
+        <input type="hidden" name="redirect_to" value="https://www.jazminmethod.com/thank-you"/>
+        <input class="cta-fi" type="email" name="email_address" placeholder="Your email address" required autocomplete="email"/>
         <button class="cta-fb" type="submit">Get Day 1 Free →</button>
       </form>
       <p class="cta-note">No spam · Unsubscribe anytime · Founding student pricing locked in</p>
@@ -712,27 +714,9 @@ setInterval(() => {
   });
 }, 3200);
 
-// ── KIT FORM ────────────────────────────────────────────────────
-const KIT = 'https://app.convertkit.com/forms/e59f04d7a6/subscriptions';
-document.addEventListener('submit', async e => {
-  const f = e.target;
-  if (!f.classList.contains('kf')) return;
-  e.preventDefault();
-  const em = f.querySelector('input[name="email_address"]').value.trim();
-  if (!em) return;
-  const b  = f.querySelector('button[type="submit"]');
-  b.textContent = 'Sending…'; b.disabled = true;
-  try {
-    await fetch(KIT, {
-      method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:'email_address=' + encodeURIComponent(em)
-    });
-    f.innerHTML = '<p class="kit-success">✓ You\'re on the list! Check your inbox for Day 1. 🇲🇽</p>';
-  } catch {
-    f.innerHTML = '<p class="kit-success">✓ You\'re on the list! Check your inbox for Day 1. 🇲🇽</p>';
-  }
-});
 </script>
+<!-- Kit.com form enhancement -->
+<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+
 </body>
 </html>
