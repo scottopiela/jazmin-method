@@ -754,6 +754,12 @@ const phases = [
 
 const cardStyles = ['style-1','style-2','style-3','style-4','style-5','style-6'];
 
+function getAssetLink(r, day, i) {
+  if (r.icon === '📺') return `/video?day=${day}&i=${i}`;
+  if (r.icon === '🎧' || r.icon === '🎙️') return `/audio?day=${day}&i=${i}`;
+  return `/download?day=${day}&i=${i}`;
+}
+
 function renderCourse(filteredData, activePhase){
   const container = document.getElementById('courseContent');
   const noResults = document.getElementById('noResults');
@@ -792,8 +798,9 @@ function renderCourse(filteredData, activePhase){
 
       const resourceCards = day.resources.map((r, i) => {
         const style = cardStyles[i % cardStyles.length];
+        const link = getAssetLink(r, day.day, i);
         return `
-          <a href="${r.link}" class="resource-card ${style}" style="text-decoration:none">
+          <a href="${link}" class="resource-card ${style}" style="text-decoration:none">
             <span class="rc-icon">${r.icon}</span>
             <div class="rc-type">${r.type}</div>
             <div class="rc-title">${r.title}</div>
