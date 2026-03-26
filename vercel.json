@@ -1,7 +1,8 @@
 {
   "version": 2,
   "builds": [
-    { "src": "*.html", "use": "@vercel/static" }
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "emails/**/*.html", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/thank-you", "dest": "/thank-you.html" },
@@ -9,6 +10,7 @@
     { "src": "/video", "dest": "/video.html" },
     { "src": "/audio", "dest": "/audio.html" },
     { "src": "/download", "dest": "/download.html" },
+    { "src": "/email/day-2", "dest": "/emails/day-02.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "headers": [
