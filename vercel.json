@@ -5,6 +5,7 @@
   ],
   "routes": [
     { "src": "/thank-you", "dest": "/thank-you.html" },
+    { "src": "/course", "dest": "/course.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "headers": [
