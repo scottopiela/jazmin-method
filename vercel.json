@@ -6,6 +6,9 @@
   "routes": [
     { "src": "/thank-you", "dest": "/thank-you.html" },
     { "src": "/course", "dest": "/course.html" },
+    { "src": "/video", "dest": "/video.html" },
+    { "src": "/audio", "dest": "/audio.html" },
+    { "src": "/download", "dest": "/download.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "headers": [
