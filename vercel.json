@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/thank-you", "dest": "/thank-you.html" },
-    { "src": "/course", "dest": "/course.html" },
-    { "src": "/video", "dest": "/video.html" },
-    { "src": "/audio", "dest": "/audio.html" },
-    { "src": "/download", "dest": "/download.html" },
-    { "src": "/email/day-2", "dest": "/email-day-02.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/thank-you", "destination": "/thank-you.html" },
+    { "source": "/course", "destination": "/course.html" },
+    { "source": "/video", "destination": "/video.html" },
+    { "source": "/audio", "destination": "/audio.html" },
+    { "source": "/download", "destination": "/download.html" },
+    { "source": "/email/day-2", "destination": "/email-day-02.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
