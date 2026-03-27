@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Jazmín Method — Social Media Tiles</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#0f0d0a;
+  font-family:'DM Sans',sans-serif;
+  padding:48px 32px 80px;
+  min-height:100vh;
+}
+
+/* ── PAGE LAYOUT ── */
+.page-title{
+  font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;
+  color:rgba(255,255,255,.25);letter-spacing:.2em;text-transform:uppercase;
+  text-align:center;margin-bottom:8px;
+}
+.page-sub{
+  font-size:12px;color:rgba(255,255,255,.2);text-align:center;
+  margin-bottom:56px;letter-spacing:.04em;
+}
+
+.post-block{
+  max-width:1100px;margin:0 auto 72px;
+}
+.post-label{
+  font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.25);margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.post-label::after{
+  content:'';flex:1;height:1px;background:rgba(255,255,255,.06);
+}
+.post-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;
+}
+.post-copy{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;padding:28px;
+}
+.copy-platform{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#C8973A;margin-bottom:12px;
+}
+.copy-text{
+  font-size:14px;color:rgba(255,255,255,.75);line-height:1.72;
+  white-space:pre-wrap;
+}
+.copy-tags{
+  margin-top:14px;font-size:12px;color:rgba(200,151,58,.6);line-height:1.8;
+}
+
+/* ══════════════════════════════════════════════
+   TILE 1 — Instagram Square 1:1
+   Bold typographic poster — espresso + marigold
+══════════════════════════════════════════════ */
+.tile-1{
+  width:480px;height:480px;
+  position:relative;overflow:hidden;
+  background:#1A1209;
+  flex-shrink:0;
+  border-radius:4px;
+}
+/* Dot texture */
+.tile-1::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(200,151,58,.06) 1px,transparent 1px);
+  background-size:20px 20px;
+  pointer-events:none;z-index:0;
+}
+/* Diagonal gold line */
+.tile-1::after{
+  content:'';position:absolute;
+  top:-40px;right:80px;
+  width:2px;height:140%;
+  background:linear-gradient(180deg,transparent,rgba(200,151,58,.4),transparent);
+  transform:rotate(-20deg);
+  pointer-events:none;z-index:0;
+}
+.t1-inner{
+  position:absolute;inset:0;z-index:1;
+  padding:44px 40px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.t1-eyebrow{
+  font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:#C8973A;
+}
+.t1-main{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  gap:0;
+}
+.t1-num{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:120px;line-height:.85;letter-spacing:-.06em;
+  color:#C8973A;opacity:.9;
+}
+.t1-label{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:36px;line-height:1.05;color:#FBF5E6;
+  margin-top:10px;
+}
+.t1-sub{
+  font-size:13px;color:rgba(251,245,230,.55);
+  margin-top:8px;line-height:1.5;letter-spacing:.01em;
+}
+.t1-footer{
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.t1-logo{
+  font-family:'Unbounded',sans-serif;font-size:20px;font-weight:900;
+  color:#C8973A;letter-spacing:-.02em;
+}
+.t1-badge{
+  background:#C8973A;
+  font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#1A1209;padding:7px 16px;border-radius:100px;
+}
+
+/* ══════════════════════════════════════════════
+   TILE 2 — Instagram/Facebook Square
+   Split composition — cream + aubergine halves
+══════════════════════════════════════════════ */
+.tile-2{
+  width:480px;height:480px;
+  position:relative;overflow:hidden;
+  flex-shrink:0;
+  border-radius:4px;
+}
+.t2-top{
+  position:absolute;top:0;left:0;right:0;height:52%;
+  background:#4A2C52;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 36px;
+}
+.t2-top::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:40px;
+  background:#FBF5E6;
+  clip-path:ellipse(60% 100% at 50% 100%);
+}
+.t2-quote{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:26px;line-height:1.35;color:#fff;text-align:center;
+  position:relative;z-index:1;
+}
+.t2-quote em{color:#C8973A;font-style:normal}
+.t2-bottom{
+  position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:#FBF5E6;
+  padding:20px 36px 32px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+/* dot texture on cream */
+.t2-bottom::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(26,18,9,.04) 1px,transparent 1px);
+  background-size:18px 18px;pointer-events:none;
+}
+.t2-method{
+  font-family:'Unbounded',sans-serif;font-size:15px;font-weight:900;
+  color:#1A1209;letter-spacing:-.02em;margin-bottom:4px;
+  position:relative;z-index:1;
+}
+.t2-tagline{
+  font-size:12px;color:#6B5B3E;letter-spacing:.03em;
+  position:relative;z-index:1;
+}
+.t2-pill{
+  position:absolute;bottom:28px;right:32px;
+  background:#1A1209;color:#C8973A;
+  font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.08em;padding:8px 18px;border-radius:100px;
+  z-index:2;
+}
+
+/* ══════════════════════════════════════════════
+   TILE 3 — Instagram Story / Reel 9:16
+   Bold full-bleed with stat callouts
+══════════════════════════════════════════════ */
+.tile-3{
+  width:270px;height:480px;
+  position:relative;overflow:hidden;
+  background:#4A2C52;
+  flex-shrink:0;
+  border-radius:4px;
+}
+.t3-bg-stripe{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    -45deg,
+    rgba(200,151,58,.04) 0,rgba(200,151,58,.04) 1px,
+    transparent 1px,transparent 32px
+  );
+}
+.t3-glow{
+  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,151,58,.18) 0%,transparent 70%);
+}
+.t3-inner{
+  position:absolute;inset:0;
+  padding:36px 28px 32px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  z-index:2;
+}
+.t3-logo{
+  font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;
+  color:#C8973A;letter-spacing:-.02em;
+}
+.t3-mid{display:flex;flex-direction:column;gap:6px}
+.t3-pre{
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+.t3-h{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:32px;line-height:.9;letter-spacing:-.04em;
+  color:#fff;
+}
+.t3-h span{color:#C8973A;display:block}
+.t3-stats{
+  display:flex;flex-direction:column;gap:10px;
+  margin-top:18px;
+}
+.t3-stat{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:10px 14px;
+}
+.t3-stat-n{
+  font-family:'Unbounded',sans-serif;font-size:22px;font-weight:900;
+  color:#C8973A;line-height:1;flex-shrink:0;
+}
+.t3-stat-l{
+  font-size:11px;color:rgba(255,255,255,.65);line-height:1.35;
+}
+.t3-cta{
+  background:#C8973A;color:#1A1209;
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.06em;padding:12px 20px;border-radius:100px;
+  text-align:center;
+}
+
+/* ══════════════════════════════════════════════
+   TILE 4 — Facebook/LinkedIn Landscape 1.91:1
+   Editorial headline card — cream bg
+══════════════════════════════════════════════ */
+.tile-4{
+  width:480px;height:252px;
+  position:relative;overflow:hidden;
+  background:#FBF5E6;
+  flex-shrink:0;
+  border-radius:4px;
+}
+.t4-left{
+  position:absolute;left:0;top:0;bottom:0;width:56%;
+  padding:28px 0 24px 32px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  z-index:2;
+}
+.t4-right{
+  position:absolute;right:0;top:0;bottom:0;width:52%;
+  background:linear-gradient(135deg,#4A2C52 0%,#1A1209 100%);
+  overflow:hidden;
+}
+/* cream feather into the dark right panel */
+.t4-right::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:60px;
+  background:linear-gradient(to right,#FBF5E6,transparent);
+  z-index:2;
+}
+/* dot texture on dark panel */
+.t4-right::after{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(200,151,58,.07) 1px,transparent 1px);
+  background-size:16px 16px;
+}
+.t4-right-content{
+  position:absolute;inset:0;z-index:3;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;padding:20px 24px 20px 36px;
+}
+.t4-stat-big{
+  font-family:'Unbounded',sans-serif;font-size:52px;font-weight:900;
+  color:#C8973A;line-height:.85;letter-spacing:-.04em;
+}
+.t4-stat-label{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);text-align:center;line-height:1.5;
+}
+.t4-eyebrow{
+  font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:#C8973A;
+}
+.t4-h{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:24px;line-height:1.05;color:#1A1209;
+}
+.t4-h em{color:#4A2C52;font-style:normal}
+.t4-foot{
+  display:flex;align-items:center;gap:10px;
+}
+.t4-logo{
+  font-family:'Unbounded',sans-serif;font-size:13px;font-weight:900;
+  color:#1A1209;letter-spacing:-.02em;
+}
+.t4-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(26,18,9,.25);
+}
+.t4-tagline{
+  font-size:11px;color:#6B5B3E;
+}
+
+/* dot texture overlay on cream tile */
+.tile-4::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(26,18,9,.04) 1px,transparent 1px);
+  background-size:18px 18px;pointer-events:none;z-index:1;
+}
+
+/* ── TILE WRAPPER ── */
+.tile-wrap{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.tile-caption{
+  font-size:10px;color:rgba(255,255,255,.2);
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-top:8px;
+  text-align:center;
+}
+
+/* ── ANIMATIONS (for screen viewing) ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.post-block{animation:fadeUp .5s ease both}
+.post-block:nth-child(2){animation-delay:.1s}
+.post-block:nth-child(3){animation-delay:.2s}
+.post-block:nth-child(4){animation-delay:.3s}
+.post-block:nth-child(5){animation-delay:.4s}
+</style>
+</head>
+<body>
+
+<p class="page-title">Jazmín Method — Social Media Tiles</p>
+<p class="page-sub">4 post concepts · Cream Canvas palette · Instagram · Stories · Facebook · LinkedIn</p>
+
+<!-- ══════════════════════════════════════════
+  POST 1 — "90 Days" Bold Typography
+  Instagram Square 1080×1080
+══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-label">Post 1 · Instagram Square · 1080×1080 · Bold Typographic</div>
+  <div class="post-layout">
+
+    <div>
+      <div class="tile-wrap">
+        <div>
+          <div class="tile-1">
+            <div class="t1-inner">
+              <div class="t1-eyebrow">🇲🇽 El método que sí funciona</div>
+              <div class="t1-main">
+                <div class="t1-num">90</div>
+                <div class="t1-label">Days to speaking Spanish.</div>
+                <div class="t1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+              </div>
+              <div class="t1-footer">
+                <div class="t1-logo">Jazmín</div>
+                <div class="t1-badge">Start Free →</div>
+              </div>
+            </div>
+          </div>
+          <div class="tile-caption">Instagram Feed · 1080×1080</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-copy">
+      <div class="copy-platform">Instagram · Facebook Feed</div>
+      <div class="copy-text">Most people spend years "learning" Spanish and never have a real conversation.
+
+My students speak from Day 1.
+
+Not perfect Spanish. Not rehearsed phrases. Real, unscripted conversation — because that's how your brain was designed to learn.
+
+The Jazmín Method isn't a course. It's a process that works with your brain instead of against it.
+
+90 days. Real results. Guaranteed — or your money back. 🇲🇽
+
+↓ Get your first lesson free.</div>
+      <div class="copy-tags">#LearnSpanish #SpanishInspiration #JazminMethod #HablaEspañol #LanguageLearning #SpanishTeacher #90Days #SpanishChallenge</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  POST 2 — Split Quote Card
+  Instagram Square 1080×1080
+══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-label">Post 2 · Instagram Square · 1080×1080 · Quote / Split</div>
+  <div class="post-layout">
+
+    <div>
+      <div class="tile-wrap">
+        <div>
+          <div class="tile-2">
+            <div class="t2-top">
+              <div class="t2-quote">"Your ear woke up before your mouth ever could. <em>That's the method.</em>"</div>
+            </div>
+            <div class="t2-bottom">
+              <div style="position:relative;z-index:1">
+                <div class="t2-method">Jazmín Method</div>
+                <div class="t2-tagline">Hear Spanish. Speak Spanish. Live Spanish.</div>
+              </div>
+            </div>
+            <div class="t2-pill">Day 1 Free →</div>
+          </div>
+          <div class="tile-caption">Instagram Feed · 1080×1080</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-copy">
+      <div class="copy-platform">Instagram · Quote Post</div>
+      <div class="copy-text">Here's what nobody tells you about learning Spanish:
+
+You don't start with grammar. You don't start with vocab lists. You start with your ears.
+
+Spanish has 5 vowels. English has 15. The moment your brain recalibrates to those 5 sounds — everything changes. Words stick. Sentences make sense. People stop sounding like they're speaking at twice the speed.
+
+That's Day 1 of the Jazmín Method.
+
+No drills. No textbooks. Just the method your brain was waiting for. 🎧
+
+🔗 Link in bio for your free first lesson.</div>
+      <div class="copy-tags">#SpanishLanguage #LearnSpanishOnline #JazminMethod #SpeakSpanish #LanguageTips #SpanishLearner #Bilingual #HablaEspañol</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  POST 3 — Story / Reel
+  9:16 vertical with stats
+══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-label">Post 3 · Instagram Story / Reel · 1080×1920 · Stats Callout</div>
+  <div class="post-layout">
+
+    <div>
+      <div class="tile-wrap">
+        <div>
+          <div class="tile-3">
+            <div class="t3-bg-stripe"></div>
+            <div class="t3-glow"></div>
+            <div class="t3-inner">
+              <div class="t3-logo">Jazmín</div>
+              <div>
+                <div class="t3-mid">
+                  <div class="t3-pre">Start speaking</div>
+                  <div class="t3-h">Day<span>1.</span></div>
+                </div>
+                <div class="t3-stats">
+                  <div class="t3-stat">
+                    <div class="t3-stat-n">90</div>
+                    <div class="t3-stat-l">Days to fluency.<br>Guaranteed.</div>
+                  </div>
+                  <div class="t3-stat">
+                    <div class="t3-stat-n">5</div>
+                    <div class="t3-stat-l">Spanish vowels.<br>Your secret weapon.</div>
+                  </div>
+                  <div class="t3-stat">
+                    <div class="t3-stat-n">0</div>
+                    <div class="t3-stat-l">Grammar drills.<br>Ever.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="t3-cta">Get Day 1 Free →</div>
+            </div>
+          </div>
+          <div class="tile-caption">Story / Reel · 1080×1920</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-copy">
+      <div class="copy-platform">Instagram Stories · Reels · TikTok</div>
+      <div class="copy-text">POV: You've been studying Spanish for 2 years and a native speaker opens their mouth and you completely freeze. 😬
+
+That's not a you problem. That's a method problem.
+
+The Jazmín Method fixes the root cause:
+→ 90 days. Real conversation. Guaranteed.
+→ 5 vowels. The insight that changes everything.
+→ 0 grammar drills. Your brain doesn't need them.
+
+I've never had to give a refund. I don't expect to start with you.
+
+🔗 Link in bio — your first lesson is free.</div>
+      <div class="copy-tags">#SpanishTeacher #LearnSpanish #LanguageLearning #SpanishTips #JazminMethod #SpeakSpanish #Bilingual #SpanishChallenge #Day1</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+  POST 4 — Facebook / LinkedIn Landscape
+  1200×628 Editorial
+══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-label">Post 4 · Facebook / LinkedIn · 1200×628 · Editorial Landscape</div>
+  <div class="post-layout">
+
+    <div>
+      <div class="tile-wrap">
+        <div>
+          <div class="tile-4">
+            <div class="t4-left">
+              <div class="t4-eyebrow">The Jazmín Method</div>
+              <div>
+                <div class="t4-h">Why everything<br>you've tried<br><em>didn't work.</em></div>
+              </div>
+              <div class="t4-foot">
+                <div class="t4-logo">Jazmín</div>
+                <div class="t4-dot"></div>
+                <div class="t4-tagline">jazminmethod.com</div>
+              </div>
+            </div>
+            <div class="t4-right">
+              <div class="t4-right-content">
+                <div class="t4-stat-big">30</div>
+                <div class="t4-stat-label">Day Promise.<br>Real conversation.<br>Or your money back.</div>
+              </div>
+            </div>
+          </div>
+          <div class="tile-caption">Facebook / LinkedIn · 1200×628</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-copy">
+      <div class="copy-platform">Facebook · LinkedIn · Twitter/X</div>
+      <div class="copy-text">Two years of classes. Every app. Three textbooks. I could conjugate any verb — and I still couldn't order a coffee.
+
+That was Frank, one of my first students.
+
+Six weeks later, he had a 20-minute unrehearsed conversation with a native speaker.
+
+Nothing changed about his schedule or his aptitude. The only thing that changed was the method.
+
+The Jazmín Method teaches you to hear Spanish before you speak it. Because that's how every human brain acquires language — not through grammar charts, but through sound.
+
+By Day 30, you'll have a real, unscripted conversation in Spanish. Guaranteed — or every dollar back.
+
+Your first lesson is free. No credit card.
+
+👇 What's your biggest frustration with learning Spanish? Drop it in the comments.</div>
+      <div class="copy-tags">#LearnSpanish #SpanishLanguage #LanguageLearning #JazminMethod #SpeakSpanish #OnlineLearning #SpanishCourse #Bilingual</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
