@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Jazmín Method — Social Tile Colour Variants</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#111;
+  font-family:'DM Sans',sans-serif;
+  padding:48px 32px 96px;
+  min-height:100vh;
+}
+
+/* ── PAGE ── */
+.page-header{text-align:center;margin-bottom:60px}
+.page-title{
+  font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;
+  color:rgba(255,255,255,.25);letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.page-sub{font-size:12px;color:rgba(255,255,255,.18);letter-spacing:.04em}
+
+.variant-row{
+  max-width:1160px;margin:0 auto 72px;
+}
+.variant-label{
+  font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.22);margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;
+}
+.variant-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05)}
+.swatch-row{display:flex;gap:8px;margin-bottom:20px}
+.swatch{
+  width:22px;height:22px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.tiles-wrap{
+  display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;
+}
+.tile-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.tile-cap{
+  font-size:10px;color:rgba(255,255,255,.2);
+  letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* ══════════════════════════════════════════════
+   POST 1 BASE — square 1:1  (480px rendered)
+══════════════════════════════════════════════ */
+.p1{
+  width:360px;height:360px;
+  position:relative;overflow:hidden;
+  flex-shrink:0;border-radius:4px;
+}
+/* dot texture */
+.p1::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,var(--dot) 1px,transparent 1px);
+  background-size:20px 20px;pointer-events:none;z-index:0;
+}
+/* diagonal accent line */
+.p1::after{
+  content:'';position:absolute;
+  top:-40px;right:80px;
+  width:2px;height:140%;
+  background:linear-gradient(180deg,transparent,var(--line),transparent);
+  transform:rotate(-20deg);pointer-events:none;z-index:0;
+}
+.p1-inner{
+  position:absolute;inset:0;z-index:1;
+  padding:32px 28px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.p1-eyebrow{
+  font-family:'DM Sans',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+}
+.p1-main{flex:1;display:flex;flex-direction:column;justify-content:center}
+.p1-num{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:100px;line-height:.85;letter-spacing:-.06em;
+  color:var(--accent);
+}
+.p1-label{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:26px;line-height:1.05;color:var(--heading);
+  margin-top:6px;
+}
+.p1-sub{
+  font-size:11px;color:var(--body);margin-top:6px;line-height:1.5;
+}
+.p1-footer{
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.p1-logo{
+  font-family:'Unbounded',sans-serif;font-size:16px;font-weight:900;
+  color:var(--accent);letter-spacing:-.02em;
+}
+.p1-badge{
+  background:var(--badge-bg);color:var(--badge-text);
+  font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;
+}
+
+/* ══════════════════════════════════════════════
+   POST 3 BASE — story 9:16  (202×360px rendered)
+══════════════════════════════════════════════ */
+.p3{
+  width:202px;height:360px;
+  position:relative;overflow:hidden;
+  flex-shrink:0;border-radius:4px;
+}
+.p3-stripe{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--stripe) 0,var(--stripe) 1px,
+    transparent 1px,transparent 28px
+  );
+}
+.p3-glow{
+  position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);
+  width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,var(--glow) 0%,transparent 70%);
+}
+.p3-inner{
+  position:absolute;inset:0;
+  padding:24px 20px 20px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  z-index:2;
+}
+.p3-logo{
+  font-family:'Unbounded',sans-serif;font-size:12px;font-weight:900;
+  color:var(--accent);letter-spacing:-.02em;
+}
+.p3-mid{display:flex;flex-direction:column;gap:4px}
+.p3-pre{
+  font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--pre);
+}
+.p3-h{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:28px;line-height:.88;letter-spacing:-.04em;color:var(--heading);
+}
+.p3-h span{color:var(--accent);display:block}
+.p3-stats{display:flex;flex-direction:column;gap:7px;margin-top:14px}
+.p3-stat{
+  display:flex;align-items:center;gap:10px;
+  background:var(--stat-bg);
+  border:1px solid var(--stat-border);
+  border-radius:7px;padding:8px 10px;
+}
+.p3-stat-n{
+  font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;
+  color:var(--accent);line-height:1;flex-shrink:0;
+}
+.p3-stat-l{font-size:9px;color:var(--stat-text);line-height:1.35}
+.p3-cta{
+  background:var(--cta-bg);color:var(--cta-text);
+  font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.06em;padding:10px 16px;border-radius:100px;
+  text-align:center;
+}
+
+/* ══════════════════════════════════════════════
+   COLOUR VARIANTS
+══════════════════════════════════════════════ */
+
+/* A — ORIGINAL: Espresso bg + Marigold accent */
+.va{
+  --dot:    rgba(200,151,58,.06);
+  --line:   rgba(200,151,58,.4);
+  --accent: #C8973A;
+  --heading:#FBF5E6;
+  --body:   rgba(251,245,230,.55);
+  --badge-bg:#C8973A;
+  --badge-text:#1A1209;
+  background:#1A1209;
+}
+.va.p3{
+  background:#1A1209;
+  --stripe: rgba(200,151,58,.04);
+  --glow:   rgba(200,151,58,.18);
+  --pre:    rgba(255,255,255,.45);
+  --stat-bg:rgba(255,255,255,.07);
+  --stat-border:rgba(255,255,255,.1);
+  --stat-text:rgba(255,255,255,.65);
+  --cta-bg: #C8973A;
+  --cta-text:#1A1209;
+}
+
+/* B — Aubergine bg + Marigold accent */
+.vb{
+  --dot:    rgba(200,151,58,.07);
+  --line:   rgba(200,151,58,.45);
+  --accent: #C8973A;
+  --heading:#FBF5E6;
+  --body:   rgba(251,245,230,.55);
+  --badge-bg:#C8973A;
+  --badge-text:#4A2C52;
+  background:#4A2C52;
+}
+.vb.p3{
+  background:#4A2C52;
+  --stripe: rgba(200,151,58,.05);
+  --glow:   rgba(200,151,58,.2);
+  --pre:    rgba(255,255,255,.45);
+  --stat-bg:rgba(255,255,255,.08);
+  --stat-border:rgba(255,255,255,.12);
+  --stat-text:rgba(255,255,255,.65);
+  --cta-bg: #C8973A;
+  --cta-text:#4A2C52;
+}
+
+/* C — Cream bg + Espresso + Marigold accent */
+.vc{
+  --dot:    rgba(26,18,9,.05);
+  --line:   rgba(26,18,9,.15);
+  --accent: #C8973A;
+  --heading:#1A1209;
+  --body:   rgba(26,18,9,.5);
+  --badge-bg:#1A1209;
+  --badge-text:#C8973A;
+  background:#FBF5E6;
+}
+.vc.p3{
+  background:#FBF5E6;
+  --stripe: rgba(26,18,9,.04);
+  --glow:   rgba(200,151,58,.15);
+  --pre:    rgba(26,18,9,.45);
+  --stat-bg:rgba(26,18,9,.05);
+  --stat-border:rgba(26,18,9,.1);
+  --stat-text:rgba(26,18,9,.65);
+  --cta-bg: #1A1209;
+  --cta-text:#C8973A;
+}
+
+/* D — Cream bg + Aubergine accent */
+.vd{
+  --dot:    rgba(74,44,82,.05);
+  --line:   rgba(74,44,82,.2);
+  --accent: #4A2C52;
+  --heading:#1A1209;
+  --body:   rgba(26,18,9,.5);
+  --badge-bg:#4A2C52;
+  --badge-text:#FBF5E6;
+  background:#FBF5E6;
+}
+.vd.p3{
+  background:#FBF5E6;
+  --stripe: rgba(74,44,82,.04);
+  --glow:   rgba(74,44,82,.12);
+  --pre:    rgba(26,18,9,.45);
+  --stat-bg:rgba(74,44,82,.06);
+  --stat-border:rgba(74,44,82,.15);
+  --stat-text:rgba(26,18,9,.65);
+  --cta-bg: #4A2C52;
+  --cta-text:#C8973A;
+}
+
+/* E — Espresso bg + Aubergine mid + Cream accent (inverted) */
+.ve{
+  --dot:    rgba(74,44,82,.1);
+  --line:   rgba(74,44,82,.5);
+  --accent: #FBF5E6;
+  --heading:#FBF5E6;
+  --body:   rgba(251,245,230,.45);
+  --badge-bg:#4A2C52;
+  --badge-text:#C8973A;
+  background:#1A1209;
+}
+.ve.p3{
+  background:#1A1209;
+  --stripe: rgba(74,44,82,.08);
+  --glow:   rgba(74,44,82,.25);
+  --pre:    rgba(251,245,230,.4);
+  --stat-bg:rgba(74,44,82,.2);
+  --stat-border:rgba(74,44,82,.35);
+  --stat-text:rgba(251,245,230,.65);
+  --cta-bg: #4A2C52;
+  --cta-text:#C8973A;
+}
+
+/* F — Aubergine bg + Cream accent + Tobacco body */
+.vf{
+  --dot:    rgba(251,245,230,.04);
+  --line:   rgba(251,245,230,.15);
+  --accent: #FBF5E6;
+  --heading:#FBF5E6;
+  --body:   rgba(251,245,230,.45);
+  --badge-bg:#FBF5E6;
+  --badge-text:#4A2C52;
+  background:#4A2C52;
+}
+.vf.p3{
+  background:#4A2C52;
+  --stripe: rgba(251,245,230,.04);
+  --glow:   rgba(251,245,230,.1);
+  --pre:    rgba(251,245,230,.45);
+  --stat-bg:rgba(251,245,230,.07);
+  --stat-border:rgba(251,245,230,.12);
+  --stat-text:rgba(251,245,230,.65);
+  --cta-bg: #FBF5E6;
+  --cta-text:#4A2C52;
+}
+
+/* G — Deep Espresso + Marigold — maximum contrast */
+.vg{
+  --dot:    rgba(200,151,58,.04);
+  --line:   rgba(200,151,58,.35);
+  --accent: #C8973A;
+  --heading:#C8973A;
+  --body:   rgba(200,151,58,.5);
+  --badge-bg:#C8973A;
+  --badge-text:#0E0A05;
+  background:#0E0A05;
+}
+.vg.p3{
+  background:#0E0A05;
+  --stripe: rgba(200,151,58,.03);
+  --glow:   rgba(200,151,58,.15);
+  --pre:    rgba(200,151,58,.5);
+  --stat-bg:rgba(200,151,58,.06);
+  --stat-border:rgba(200,151,58,.15);
+  --stat-text:rgba(200,151,58,.65);
+  --cta-bg: #C8973A;
+  --cta-text:#0E0A05;
+}
+
+/* H — Cream bg + Tobacco + Marigold pip */
+.vh{
+  --dot:    rgba(107,91,62,.05);
+  --line:   rgba(107,91,62,.2);
+  --accent: #C8973A;
+  --heading:#6B5B3E;
+  --body:   rgba(107,91,62,.55);
+  --badge-bg:#6B5B3E;
+  --badge-text:#FBF5E6;
+  background:#F0E6D0;
+}
+.vh.p3{
+  background:#F0E6D0;
+  --stripe: rgba(107,91,62,.04);
+  --glow:   rgba(200,151,58,.12);
+  --pre:    rgba(107,91,62,.5);
+  --stat-bg:rgba(107,91,62,.07);
+  --stat-border:rgba(107,91,62,.14);
+  --stat-text:rgba(107,91,62,.7);
+  --cta-bg: #6B5B3E;
+  --cta-text:#F0E6D0;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.variant-row{animation:fadeUp .5s ease both}
+.variant-row:nth-child(2){animation-delay:.05s}
+.variant-row:nth-child(3){animation-delay:.1s}
+.variant-row:nth-child(4){animation-delay:.15s}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-title">Jazmín Method — Colour Variants</div>
+  <div class="page-sub">Posts 1 & 3 · 8 palette combinations · Cream Canvas</div>
+</div>
+
+<!-- VARIANT TEMPLATE MACRO — repeated for each colour -->
+
+<!-- ── A: ESPRESSO + MARIGOLD (original) ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    A &nbsp;·&nbsp; Espresso background + Marigold gold &nbsp;·&nbsp; Original
+    <div class="swatch-row"><div class="swatch" style="background:#1A1209"></div><div class="swatch" style="background:#C8973A"></div><div class="swatch" style="background:#FBF5E6"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 va">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 va">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── B: AUBERGINE + MARIGOLD ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    B &nbsp;·&nbsp; Aubergine background + Marigold gold
+    <div class="swatch-row"><div class="swatch" style="background:#4A2C52"></div><div class="swatch" style="background:#C8973A"></div><div class="swatch" style="background:#FBF5E6"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 vb">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 vb">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── C: CREAM + ESPRESSO + MARIGOLD ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    C &nbsp;·&nbsp; Cream background + Espresso + Marigold accent
+    <div class="swatch-row"><div class="swatch" style="background:#FBF5E6;border-color:rgba(26,18,9,.15)"></div><div class="swatch" style="background:#1A1209"></div><div class="swatch" style="background:#C8973A"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 vc">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 vc">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── D: CREAM + AUBERGINE ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    D &nbsp;·&nbsp; Cream background + Aubergine accent
+    <div class="swatch-row"><div class="swatch" style="background:#FBF5E6;border-color:rgba(26,18,9,.15)"></div><div class="swatch" style="background:#4A2C52"></div><div class="swatch" style="background:#C8973A"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 vd">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 vd">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── E: ESPRESSO + AUBERGINE ACCENT ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    E &nbsp;·&nbsp; Espresso background + Aubergine mid-tone + Cream type
+    <div class="swatch-row"><div class="swatch" style="background:#1A1209"></div><div class="swatch" style="background:#4A2C52"></div><div class="swatch" style="background:#C8973A"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 ve">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 ve">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── F: AUBERGINE + CREAM TYPE ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    F &nbsp;·&nbsp; Aubergine background + Cream type (reversed)
+    <div class="swatch-row"><div class="swatch" style="background:#4A2C52"></div><div class="swatch" style="background:#FBF5E6;border-color:rgba(74,44,82,.3)"></div><div class="swatch" style="background:#C8973A"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 vf">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 vf">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── G: DEEP ESPRESSO + ALL MARIGOLD ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    G &nbsp;·&nbsp; Deep Espresso + pure Marigold — maximum contrast
+    <div class="swatch-row"><div class="swatch" style="background:#0E0A05"></div><div class="swatch" style="background:#C8973A"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 vg">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 vg">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── H: CREAM DARK + TOBACCO + MARIGOLD ── -->
+<div class="variant-row">
+  <div class="variant-label">
+    H &nbsp;·&nbsp; Warm Cream Dark + Tobacco + Marigold — earthy editorial
+    <div class="swatch-row"><div class="swatch" style="background:#F0E6D0;border-color:rgba(26,18,9,.15)"></div><div class="swatch" style="background:#6B5B3E"></div><div class="swatch" style="background:#C8973A"></div></div>
+  </div>
+  <div class="tiles-wrap">
+    <div class="tile-item">
+      <div class="p1 vh">
+        <div class="p1-inner">
+          <div class="p1-eyebrow">🇲🇽 El método que sí funciona</div>
+          <div class="p1-main">
+            <div class="p1-num">90</div>
+            <div class="p1-label">Days to speaking Spanish.</div>
+            <div class="p1-sub">Not someday. Not after 200 lessons.<br>Day 1. Today.</div>
+          </div>
+          <div class="p1-footer">
+            <div class="p1-logo">Jazmín</div>
+            <div class="p1-badge">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 1 · Square</div>
+    </div>
+    <div class="tile-item">
+      <div class="p3 vh">
+        <div class="p3-stripe"></div><div class="p3-glow"></div>
+        <div class="p3-inner">
+          <div class="p3-logo">Jazmín</div>
+          <div>
+            <div class="p3-mid"><div class="p3-pre">Start speaking</div><div class="p3-h">Day<span>1.</span></div></div>
+            <div class="p3-stats">
+              <div class="p3-stat"><div class="p3-stat-n">90</div><div class="p3-stat-l">Days to fluency.<br>Guaranteed.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">5</div><div class="p3-stat-l">Spanish vowels.<br>Your secret weapon.</div></div>
+              <div class="p3-stat"><div class="p3-stat-n">0</div><div class="p3-stat-l">Grammar drills.<br>Ever.</div></div>
+            </div>
+          </div>
+          <div class="p3-cta">Get Day 1 Free →</div>
+        </div>
+      </div>
+      <div class="tile-cap">Post 3 · Story</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
